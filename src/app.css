@@ -1,0 +1,37 @@
+@layer reset, base, components, utilities;
+
+@import "modern-normalize" layer(reset);
+
+@layer base {
+  :root {
+    --text: oklch(0.09 0.03 285);
+    --bg: oklch(1 0 0);
+    --accent: oklch(0.62 0.27 305);
+  }
+
+  html {
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-block-size: 100svb;
+  }
+
+  #app {
+    display: contents;
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+}
