@@ -23,7 +23,13 @@
     <li></li>
   </ul> -->
 </header>
-<main class="main">
+<main
+  class="main"
+  style="
+    --number-of-columns: {numberOfColumns};
+    --gutter-size: 1rem;
+  "
+>
   <FloatsPaddingBased {numberOfColumns}>{columnText}</FloatsPaddingBased>
   <FloatsMarginBased {numberOfColumns}>{columnText}</FloatsMarginBased>
   <FloatsContainerRelative {numberOfColumns}
