@@ -11,16 +11,15 @@
   let { numberOfColumns, children }: FloatsPaddingBasedProps = $props();
 </script>
 
-<section
-  style="
-    --size-of-column: calc(100% / var(--number-of-columns));
-  "
->
+<section style:--size-of-column={"calc(100% / var(--number-of-columns))"}>
   <h2>Padding-based float grid with gutters in children (Boostrap 2 and 3)</h2>
   <div>
     <h3>Classic approach</h3>
     <Row
-      style="display: flow-root; margin-inline: calc(var(--gutter-size) / -2)"
+      style="
+        display: flow-root;
+        margin-inline: calc(var(--gutter-size) / -2)
+        "
     >
       {#each { length: numberOfColumns }}
         <Column

@@ -12,10 +12,8 @@
 </script>
 
 <section
-  style="
-    --gutter-size-total: calc((var(--number-of-columns) - 1) * var(--gutter-size));
-    --size-of-column: calc((100% - var(--gutter-size-total)) / var(--number-of-columns));
-  "
+  style:--gutter-size-total={"calc((var(--number-of-columns) - 1) * var(--gutter-size))"}
+  style:--size-of-column={"calc((100% - var(--gutter-size-total)) / var(--number-of-columns))"}
 >
   <h2>Container relative floats (Zen grids, Susy Grids with isolate-mixin)</h2>
   <div>
@@ -23,13 +21,12 @@
     <Row style="display: flow-root;">
       {#each { length: numberOfColumns } as _, index}
         <Column
+          --start-of-column="calc((var(--size-of-column) + var(--gutter-size)) * {index})"
           style="
-          --start-of-column: calc((var(--size-of-column) + var(--gutter-size)) * {index});
-
-          inline-size: var(--size-of-column);
-          margin-inline-start: var(--start-of-column);
-          margin-inline-end: -100%;
-          float: inline-start;
+            inline-size: var(--size-of-column);
+            margin-inline-start: var(--start-of-column);
+            margin-inline-end: -100%;
+            float: inline-start;
           "
         >
           {@render children?.()}</Column

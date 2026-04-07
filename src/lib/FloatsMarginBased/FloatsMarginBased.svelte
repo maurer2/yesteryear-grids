@@ -12,14 +12,12 @@
 </script>
 
 <section
-  style="
-    --gutter-size-total: calc((var(--number-of-columns) - 1) * var(--gutter-size));
-    --size-of-column: calc((100% - var(--gutter-size-total)) / var(--number-of-columns));
-  "
+  style:--gutter-size-total={"calc((var(--number-of-columns) - 1) * var(--gutter-size))"}
+  style:--size-of-column={"calc((100% - var(--gutter-size-total)) / var(--number-of-columns))"}
 >
   <h2>
     Margin-based float grid with gutters via margings in children (Boostrap 1,
-    960 grid etc.
+    960 grid etc.)
   </h2>
   <div>
     <h3>Classic approach</h3>
@@ -27,9 +25,9 @@
       {#each { length: numberOfColumns } as _, index}
         <Column
           style="
-        inline-size: var(--size-of-column);
-        margin-inline-start: {index === 0 ? '0' : 'var(--gutter-size)'};
-        float: inline-start;
+          inline-size: var(--size-of-column);
+          margin-inline-start: {index === 0 ? '0' : 'var(--gutter-size)'};
+          float: inline-start;
         "
         >
           {@render children?.()}</Column
