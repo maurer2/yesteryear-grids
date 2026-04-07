@@ -1,24 +1,23 @@
 <script lang="ts">
   import { LoremIpsum } from "lorem-ipsum";
 
-  import Column from "./lib/Column/Column.svelte";
-  import Row from "./lib/Row/Row.svelte";
   import FloatsPaddingBased from "./lib/FloatsPaddingBased/FloatsPaddingBased.svelte";
   import FloatsMarginBased from "./lib/FloatsMarginBased/FloatsMarginBased.svelte";
+  import FloatsContainerRelative from "./lib/FloatsContainerRelative/FloatsContainerRelative.svelte";
 
-  const sections = [
-    { label: "Basic float grid", id: "basic float-grid" },
-  ] as const satisfies {
-    label: string;
-    id: string;
-  }[];
+  // const sections = [
+  //   { label: "Basic float grid", id: "basic float-grid" },
+  // ] as const satisfies {
+  //   label: string;
+  //   id: string;
+  // }[];
 
   const columnText = new LoremIpsum().generateParagraphs(1);
   const numberOfColumns = 5;
 </script>
 
 <header>
-  <h1>Grids</h1>
+  <h1>Grids of yesteryear</h1>
 
   <!-- <ul>
     <li></li>
@@ -27,10 +26,9 @@
 <main class="main">
   <FloatsPaddingBased {numberOfColumns}>{columnText}</FloatsPaddingBased>
   <FloatsMarginBased {numberOfColumns}>{columnText}</FloatsMarginBased>
-
-  <section>
-    <h2>Container relative floats (Susy Grids)</h2>
-  </section>
+  <FloatsContainerRelative {numberOfColumns}
+    >{columnText}</FloatsContainerRelative
+  >
 </main>
 
 <style>
