@@ -21,12 +21,11 @@
     <Row style="display: flow-root">
       {#each { length: numberOfColumns } as _, index}
         <Column
-          style={{
-            width: `calc((100% - ${numberOfColumns - 1}rem) / ${numberOfColumns})`,
-            float: "left",
-            // @ts-expect-error handling of camelCase properties in style objects not implemented
-            "margin-left": index === 0 ? 0 : "1rem",
-          }}
+          style={`
+        inline-size: calc((100% - ${numberOfColumns - 1}rem) / ${numberOfColumns});
+        float: left;
+        margin-inline-start: ${index === 0 ? "0" : "1rem"};
+        `}
         >
           {@render children?.()}</Column
         >

@@ -18,14 +18,12 @@
     <Row style="display: flow-root; margin-inline: -0.5rem">
       {#each { length: numberOfColumns } as _, index}
         <Column
-          style={{
-            width: `${100 / numberOfColumns}%`,
-            float: "left",
-            // @ts-expect-error handling of camelCase properties in style objects not implemented
-            "padding-inline": "0.5rem",
-            // @ts-expect-error handling of camelCase properties in style objects not implemented
-            "background-clip": "content-box",
-          }}
+          style={`
+            width: ${100 / numberOfColumns}%;
+            float: left;
+            padding-inline: 0.5rem;
+            background-clip: content-box;
+          `}
         >
           {@render children?.()}</Column
         >
