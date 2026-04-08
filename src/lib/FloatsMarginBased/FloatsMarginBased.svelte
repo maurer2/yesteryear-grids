@@ -16,7 +16,7 @@
   style:--size-of-column={"calc((100% - var(--gutter-size-total)) / var(--number-of-columns))"}
 >
   <h2>
-    Margin-based float grid with gutters via margings in children (Boostrap 1,
+    Margin-based float grid with gutters via margins in children (Boostrap 1,
     960 grid etc.)
   </h2>
   <div>

@@ -6,6 +6,7 @@
   import FloatsContainerRelative from "./lib/FloatsContainerRelative/FloatsContainerRelative.svelte";
   import InlineBlock from "./lib/InlineBlock/InlineBlock.svelte";
   import InlineBlockWithTextAlignJustify from "./lib/InlineBlockWithTextAlignJustify/InlineBlockWithTextAlignJustify.svelte";
+  import TableWithBorderSpacing from "./lib/TableWithBorderSpacing/TableWithBorderSpacing.svelte";
 
   // const sections = [
   //   { label: "Basic float grid", id: "basic float-grid" },
@@ -40,6 +41,8 @@
   <InlineBlock {numberOfColumns}>{columnText}</InlineBlock>
   <InlineBlockWithTextAlignJustify {numberOfColumns}
     >{columnText}</InlineBlockWithTextAlignJustify
+  >
+  <TableWithBorderSpacing {numberOfColumns}>{columnText}</TableWithBorderSpacing
   >
 </main>
 
