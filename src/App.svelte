@@ -5,6 +5,7 @@
   import FloatsMarginBased from "./lib/FloatsMarginBased/FloatsMarginBased.svelte";
   import FloatsContainerRelative from "./lib/FloatsContainerRelative/FloatsContainerRelative.svelte";
   import InlineBlock from "./lib/InlineBlock/InlineBlock.svelte";
+  import InlineBlockWithTextAlignJustify from "./lib/InlineBlockWithTextAlignJustify/InlineBlockWithTextAlignJustify.svelte";
 
   // const sections = [
   //   { label: "Basic float grid", id: "basic float-grid" },
@@ -37,12 +38,16 @@
     >{columnText}</FloatsContainerRelative
   >
   <InlineBlock {numberOfColumns}>{columnText}</InlineBlock>
+  <InlineBlockWithTextAlignJustify {numberOfColumns}
+    >{columnText}</InlineBlockWithTextAlignJustify
+  >
 </main>
 
 <style>
   @layer components {
     .main {
       display: flex;
+      margin-block-end: 2rem;
       flex-direction: column;
       gap: 2rem;
     }
