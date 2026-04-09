@@ -17,18 +17,10 @@
   </h2>
   <div>
     <h3>Classic approach</h3>
-    <div style="margin-inline: calc(var(--gutter-size) * -1);">
-      <Row
-        style="
-            display: table;
-            border-collapse: separate;
-            width: 100%;
-            table-layout: fixed;
-            border-spacing: var(--gutter-size) 0;
-          "
-      >
-        {#each { length: numberOfColumns } as _, index}
-          <Column style="display: table-cell;">
+    <div class="wrapper">
+      <Row class="row">
+        {#each { length: numberOfColumns }}
+          <Column class="column">
             {@render children?.()}
           </Column>
         {/each}
@@ -39,5 +31,23 @@
 
 <style>
   @layer components {
+    .wrapper {
+      margin-inline: calc(var(--gutter-size) * -1);
+
+      /* child component styles */
+      & {
+        :global(.row) {
+          display: table;
+          border-collapse: separate;
+          width: 100%;
+          table-layout: fixed;
+          border-spacing: var(--gutter-size) 0;
+        }
+
+        :global(.column) {
+          display: table-cell;
+        }
+      }
+    }
   }
 </style>

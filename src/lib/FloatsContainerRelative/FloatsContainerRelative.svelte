@@ -18,25 +18,36 @@
   <h2>Container relative floats (Zen grids, Susy Grids with isolate-mixin)</h2>
   <div>
     <h3>Classic approach</h3>
-    <Row style="display: flow-root;">
-      {#each { length: numberOfColumns } as _, index}
-        <Column
-          --start-of-column="calc((var(--size-of-column) + var(--gutter-size)) * {index})"
-          style="
-            inline-size: var(--size-of-column);
-            margin-inline-start: var(--start-of-column);
-            margin-inline-end: -100%;
-            float: inline-start;
-          "
-        >
-          {@render children?.()}</Column
-        >
-      {/each}
-    </Row>
+    <div class="wrapper">
+      <Row class="row">
+        {#each { length: numberOfColumns }}
+          <Column>
+            {@render children?.()}</Column
+          >
+        {/each}
+      </Row>
+    </div>
   </div>
 </section>
 
 <style>
   @layer components {
+    .wrapper {
+      /* child component styles */
+      & {
+        :global(.row) {
+          display: flow-root;
+        }
+
+        :global(.column) {
+          inline-size: var(--size-of-column);
+          margin-inline-start: calc(
+            (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
+          );
+          margin-inline-end: -100%;
+          float: inline-start;
+        }
+      }
+    }
   }
 </style>

@@ -21,23 +21,38 @@
   </h2>
   <div>
     <h3>Classic approach</h3>
-    <Row style="display: flow-root">
-      {#each { length: numberOfColumns } as _, index}
-        <Column
-          style="
-          inline-size: var(--size-of-column);
-          margin-inline-start: {index === 0 ? '0' : 'var(--gutter-size)'};
-          float: inline-start;
-        "
-        >
-          {@render children?.()}</Column
-        >
-      {/each}
-    </Row>
+    <div class="wrapper">
+      <Row class="row">
+        {#each { length: numberOfColumns }}
+          <Column class="column">
+            {@render children?.()}</Column
+          >
+        {/each}
+      </Row>
+    </div>
   </div>
 </section>
 
 <style>
   @layer components {
+    .wrapper {
+      /* child component styles */
+
+      & {
+        :global(.row) {
+          display: flow-root;
+        }
+
+        :global(.column) {
+          inline-size: var(--size-of-column);
+          margin-inline-start: var(--gutter-size);
+          float: inline-start;
+
+          &:first-child {
+            margin-inline-start: 0;
+          }
+        }
+      }
+    }
   }
 </style>

@@ -2,14 +2,15 @@
   import type { Snippet } from "svelte";
   import type { HTMLAttributes } from "svelte/elements";
 
-  type ColumnProps = HTMLAttributes<HTMLDivElement> & {
+  type ColumnProps = Omit<HTMLAttributes<HTMLDivElement>, "class"> & {
+    class?: string;
     children: Snippet;
   };
 
-  let { children, ...rest }: ColumnProps = $props();
+  let { children, class: className, ...rest }: ColumnProps = $props();
 </script>
 
-<div class="column" {...rest}>
+<div class={["column", className]} {...rest}>
   {@render children?.()}
 </div>
 

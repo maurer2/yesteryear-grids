@@ -18,31 +18,41 @@
   <h2>Inline block grids (KayzenGS, Yahoo Pure, CSSWizardry-grids)</h2>
   <div>
     <h3>Classic approach</h3>
-    <Row
-      style="
-        display: table;
-        width: 100%;
-        letter-spacing: -1em;
-        table-layout: fixed;
-      "
-    >
-      {#each { length: numberOfColumns } as _, index}
-        <Column
-          style="
-            display: inline-block;
-            margin-inline-start: {index === 0 ? '0' : 'var(--gutter-size)'};
-            inline-size: var(--size-of-column);
-            letter-spacing: normal;
-          "
-        >
-          {@render children?.()}</Column
-        >
-      {/each}
-    </Row>
+    <div class="wrapper">
+      <Row class="row">
+        {#each { length: numberOfColumns }}
+          <Column class="column">
+            {@render children?.()}</Column
+          >
+        {/each}
+      </Row>
+    </div>
   </div>
 </section>
 
 <style>
   @layer components {
+    .wrapper {
+      /* child component styles */
+      & {
+        :global(.row) {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          letter-spacing: -1em;
+        }
+
+        & :global(.column) {
+          display: inline-block;
+          inline-size: var(--size-of-column);
+          margin-inline-start: var(--gutter-size);
+          letter-spacing: normal;
+
+          &:first-child {
+            margin-inline-start: 0;
+          }
+        }
+      }
+    }
   }
 </style>

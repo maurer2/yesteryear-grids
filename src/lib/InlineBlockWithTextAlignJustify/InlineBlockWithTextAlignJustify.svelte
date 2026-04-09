@@ -19,29 +19,46 @@
   <h2>Inline block grids (KayzenGS, Yahoo Pure, CSS Wizardry grid)</h2>
   <div>
     <h3>Classic approach</h3>
-    <Row style="text-align: justify; line-height: 0;">
-      {#each { length: numberOfColumns } as _, index}
-        <Column
-          style="
-            display: inline-block;
-            inline-size: var(--size-of-column);
-            margin-block-end: -7px;
-            line-height: normal;
-            text-align: start;
-          "
-        >
-          {@render children?.()}
-        </Column>
-        {#if index === numberOfColumns - 1}
-          <span style="display: inline-block; inline-size: 100%; block-size: 0;"
-          ></span>
-        {/if}
-      {/each}
-    </Row>
+    <div class="wrapper">
+      <Row class="row">
+        {#each { length: numberOfColumns } as _, index}
+          <Column class="column">
+            {@render children?.()}
+          </Column>
+          {#if index === numberOfColumns - 1}
+            <span class="spacer"></span>
+          {/if}
+        {/each}
+      </Row>
+    </div>
   </div>
 </section>
 
 <style>
   @layer components {
+    .wrapper {
+      /* child component styles */
+      & {
+        :global(.row) {
+          text-align: justify;
+          line-height: 0;
+        }
+
+        :global(.column) {
+          display: inline-block;
+          inline-size: var(--size-of-column);
+          margin-block-end: -7px;
+          line-height: normal;
+          text-align: start;
+        }
+
+        /* neccessary as "&::after" on row doesn't work; it needs to be a real element */
+        :global(.spacer) {
+          display: inline-block;
+          inline-size: 100%;
+          block-size: 0;
+        }
+      }
+    }
   }
 </style>
