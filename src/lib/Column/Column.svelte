@@ -17,7 +17,8 @@
 <style>
   @layer components {
     .column {
-      background: var(--accent);
+      background: black;
+      color: white;
     }
   }
 </style>

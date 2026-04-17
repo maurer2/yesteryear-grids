@@ -19,12 +19,18 @@
   const numberOfColumns = 5;
 </script>
 
-<header>
-  <h1>Grids of yesteryear</h1>
+<header class="header">
+  <div class="section-full-height">
+    <h1 class="section-headline">Grids of yesteryear</h1>
 
-  <!-- <ul>
-    <li></li>
-  </ul> -->
+    <p>An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS.</p>
+
+    <!--
+    <ul>
+      <li></li>
+    </ul>
+    -->
+  </div>
 </header>
 <main
   class="main"
@@ -33,26 +39,46 @@
     --gutter-size: 1rem;
   "
 >
-  <FloatsPaddingBased {numberOfColumns}>{columnText}</FloatsPaddingBased>
-  <FloatsMarginBased {numberOfColumns}>{columnText}</FloatsMarginBased>
-  <FloatsContainerRelative {numberOfColumns}
-    >{columnText}</FloatsContainerRelative
-  >
-  <InlineBlock {numberOfColumns}>{columnText}</InlineBlock>
-  <InlineBlockWithTextAlignJustify {numberOfColumns}
-    >{columnText}</InlineBlockWithTextAlignJustify
-  >
-  <TableWithBorderSpacing {numberOfColumns}>{columnText}</TableWithBorderSpacing
-  >
+  <div class="section-full-height">
+    <FloatsPaddingBased {numberOfColumns}>{columnText}</FloatsPaddingBased>
+  </div>
+  <div class="section-full-height">
+    <FloatsMarginBased {numberOfColumns}>{columnText}</FloatsMarginBased>
+  </div>
+  <div class="section-full-height">
+    <FloatsContainerRelative {numberOfColumns}
+      >{columnText}</FloatsContainerRelative
+    >
+  </div>
+  <div class="section-full-height">
+    <InlineBlock {numberOfColumns}>{columnText}</InlineBlock>
+  </div>
+  <div class="section-full-height">
+    <InlineBlockWithTextAlignJustify {numberOfColumns}
+      >{columnText}</InlineBlockWithTextAlignJustify
+    >
+  </div>
+  <div class="section-full-height">
+    <TableWithBorderSpacing {numberOfColumns}
+      >{columnText}</TableWithBorderSpacing
+    >
+  </div>
 </main>
 
 <style>
   @layer components {
-    .main {
+    .header {
+      --background-angle: -135deg;
+    }
+
+    /* .main {
       display: flex;
       margin-block-end: 2rem;
       flex-direction: column;
       gap: 2rem;
+    } */
+
+    .main {
     }
   }
 </style>
