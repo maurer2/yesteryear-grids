@@ -1,4 +1,6 @@
 <script lang="ts">
+  import IntroPanel from "./lib/IntroPanel/IntroPanel.svelte";
+
   import { LoremIpsum } from "lorem-ipsum";
 
   import FloatsPaddingBased from "./lib/FloatsPaddingBased/FloatsPaddingBased.svelte";
@@ -7,6 +9,8 @@
   import InlineBlock from "./lib/InlineBlock/InlineBlock.svelte";
   import InlineBlockWithTextAlignJustify from "./lib/InlineBlockWithTextAlignJustify/InlineBlockWithTextAlignJustify.svelte";
   import TableWithBorderSpacing from "./lib/TableWithBorderSpacing/TableWithBorderSpacing.svelte";
+
+  import { description, title } from "./lib/Panel/Panel.svelte";
 
   // const sections = [
   //   { label: "Basic float grid", id: "basic float-grid" },
@@ -21,15 +25,7 @@
 
 <header class="header">
   <div class="section-full-height">
-    <h1 class="section-headline">Grids of yesteryear</h1>
-
-    <p>An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS.</p>
-
-    <!--
-    <ul>
-      <li></li>
-    </ul>
-    -->
+    <IntroPanel></IntroPanel>
   </div>
 </header>
 <main
@@ -69,16 +65,6 @@
   @layer components {
     .header {
       --background-angle: -135deg;
-    }
-
-    /* .main {
-      display: flex;
-      margin-block-end: 2rem;
-      flex-direction: column;
-      gap: 2rem;
-    } */
-
-    .main {
     }
   }
 </style>

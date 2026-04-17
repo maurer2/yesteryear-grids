@@ -9,7 +9,7 @@
     --accent: oklch(70% 0.25 350 / 0.8);
 
     --background-angle: 135deg;
-    --viewport-base-unit: clamp(1rem, 1dvb + 1dvi, 2.5rem);
+    --viewport-base-unit: clamp(1rem, 0.75dvb + 0.75dvi, 3rem);
   }
 
   html {
@@ -37,12 +37,23 @@
   .section-headline {
     font-size: calc(var(--viewport-base-unit) * 2);
   }
+
+  .card {
+    display: grid;
+    inline-size: min(100%, 100ch);
+    margin-inline: auto;
+    padding: 2rem;
+    justify-content: center;
+    background: oklch(90% 0 275 / 0.75);
+  }
 }
 
 @layer utilities {
   .section-full-height {
     display: flow-root;
     min-block-size: 100dvb;
+    padding: 2rem;
+    align-content: center;
     scroll-snap-align: start;
     background: repeating-linear-gradient(
       var(--background-angle),
