@@ -3,6 +3,7 @@
 
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
+  import { title, description, grid } from "../Panel/Panel.svelte";
 
   type FloatsContainerRelativeProps = {
     numberOfColumns: number;
@@ -11,28 +12,35 @@
   let { numberOfColumns, children }: FloatsContainerRelativeProps = $props();
 </script>
 
+{#snippet descriptionContent()}
+  <p>Todo</p>
+{/snippet}
+
+{#snippet gridContent()}
+  <Row class="row">
+    {#each { length: numberOfColumns }}
+      <Column>
+        {@render children?.()}</Column
+      >
+    {/each}
+  </Row>
+{/snippet}
+
 <section
+  class="card"
   style:--gutter-size-total={"calc((var(--number-of-columns) - 1) * var(--gutter-size))"}
   style:--size-of-column={"calc((100% - var(--gutter-size-total)) / var(--number-of-columns))"}
 >
-  <h2>Container relative floats (Zen grids, Susy Grids with isolate-mixin)</h2>
-  <div>
-    <h3>Classic approach</h3>
-    <div class="wrapper">
-      <Row class="row">
-        {#each { length: numberOfColumns }}
-          <Column>
-            {@render children?.()}</Column
-          >
-        {/each}
-      </Row>
-    </div>
-  </div>
+  {@render title(
+    "Container relative floats (Zen grids, Susy Grids with isolate-mixin)",
+  )}
+  {@render description(descriptionContent)}
+  {@render grid(gridContent)}
 </section>
 
 <style>
   @layer components {
-    .wrapper {
+    .card {
       /* child component styles */
       & {
         :global(.row) {

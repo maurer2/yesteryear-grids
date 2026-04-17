@@ -3,6 +3,7 @@
 
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
+  import { title, description, grid } from "../Panel/Panel.svelte";
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
@@ -11,31 +12,38 @@
   let { numberOfColumns, children }: TableWithBorderSpacingProps = $props();
 </script>
 
-<section>
-  <h2>
-    Table with border spacing and table-layout fixed grid (mdo/table-grid)
-  </h2>
-  <div>
-    <h3>Classic approach</h3>
-    <div class="wrapper">
-      <Row class="row">
-        {#each { length: numberOfColumns }}
-          <Column class="column">
-            {@render children?.()}
-          </Column>
-        {/each}
-      </Row>
-    </div>
+{#snippet descriptionContent()}
+  <p>Todo</p>
+{/snippet}
+
+{#snippet gridContent()}
+  <div class="wrapper">
+    <Row class="row">
+      {#each { length: numberOfColumns }}
+        <Column class="column">
+          {@render children?.()}
+        </Column>
+      {/each}
+    </Row>
   </div>
+{/snippet}
+
+<section class="card">
+  {@render title(
+    "Table with border spacing and table-layout fixed grid (mdo/table-grid)",
+  )}
+  {@render description(descriptionContent)}
+  {@render grid(gridContent)}
 </section>
 
 <style>
   @layer components {
-    .wrapper {
-      margin-inline: calc(var(--gutter-size) * -1);
-
+    .card {
       /* child component styles */
       & {
+        :global(.wrapper) {
+          margin-inline: calc(var(--gutter-size) * -1);
+        }
         :global(.row) {
           display: table;
           border-collapse: separate;

@@ -24,6 +24,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block-start: 0;
+  }
 }
 
 @layer components {
@@ -49,7 +58,7 @@
 }
 
 @layer utilities {
-  .section-full-height {
+  .panel-full-height {
     display: flow-root;
     min-block-size: 100dvb;
     padding: 2rem;
@@ -61,7 +70,7 @@
       transparent 1px 16px
     );
 
-    &:nth-child(even of .section-full-height) {
+    &:nth-child(even of .panel-full-height) {
       --background-angle: -135deg;
     }
   }

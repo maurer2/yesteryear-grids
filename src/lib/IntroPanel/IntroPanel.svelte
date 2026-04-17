@@ -20,8 +20,5 @@
 
 <style>
   @layer components {
-    .section-headline {
-      margin-block-start: 0;
-    }
   }
 </style>

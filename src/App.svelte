@@ -24,7 +24,7 @@
 </script>
 
 <header class="header">
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <IntroPanel></IntroPanel>
   </div>
 </header>
@@ -35,26 +35,26 @@
     --gutter-size: 1rem;
   "
 >
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <FloatsPaddingBased {numberOfColumns}>{columnText}</FloatsPaddingBased>
   </div>
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <FloatsMarginBased {numberOfColumns}>{columnText}</FloatsMarginBased>
   </div>
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <FloatsContainerRelative {numberOfColumns}
       >{columnText}</FloatsContainerRelative
     >
   </div>
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <InlineBlock {numberOfColumns}>{columnText}</InlineBlock>
   </div>
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <InlineBlockWithTextAlignJustify {numberOfColumns}
       >{columnText}</InlineBlockWithTextAlignJustify
     >
   </div>
-  <div class="section-full-height">
+  <div class="panel-full-height">
     <TableWithBorderSpacing {numberOfColumns}
       >{columnText}</TableWithBorderSpacing
     >

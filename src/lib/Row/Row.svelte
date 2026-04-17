@@ -16,8 +16,8 @@
 
 <style>
   @layer components {
-    .row {
+    /* .row {
       background: gainsboro;
-    }
+    } */
   }
 </style>

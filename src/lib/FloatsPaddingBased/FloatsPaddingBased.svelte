@@ -3,6 +3,7 @@
 
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
+  import { title, description, grid } from "../Panel/Panel.svelte";
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
@@ -11,25 +12,34 @@
   let { numberOfColumns, children }: FloatsPaddingBasedProps = $props();
 </script>
 
-<section style:--size-of-column={"calc(100% / var(--number-of-columns))"}>
-  <h2>Padding-based float grid with gutters in children (Boostrap 2 and 3)</h2>
-  <div>
-    <h3>Classic approach</h3>
-    <div class="wrapper">
-      <Row class="row">
-        {#each { length: numberOfColumns }}
-          <Column class="column">
-            {@render children?.()}</Column
-          >
-        {/each}
-      </Row>
-    </div>
-  </div>
+{#snippet descriptionContent()}
+  <p>Todo</p>
+{/snippet}
+
+{#snippet gridContent()}
+  <Row class="row">
+    {#each { length: numberOfColumns }}
+      <Column class="column">
+        {@render children?.()}</Column
+      >
+    {/each}
+  </Row>
+{/snippet}
+
+<section
+  class="card"
+  style:--size-of-column={"calc(100% / var(--number-of-columns))"}
+>
+  {@render title(
+    "Padding-based float grid with gutters in children (Boostrap 2 and 3)",
+  )}
+  {@render description(descriptionContent)}
+  {@render grid(gridContent)}
 </section>
 
 <style>
   @layer components {
-    .wrapper {
+    .card {
       /* child component styles */
       & {
         :global .row {
