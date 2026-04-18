@@ -1,15 +1,12 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
   import { title, description, grid } from "../Panel/Panel.svelte";
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
-    children: Snippet;
   };
-  let { numberOfColumns, children }: TableWithBorderSpacingProps = $props();
+  let { numberOfColumns }: TableWithBorderSpacingProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -20,9 +17,7 @@
   <div class="wrapper">
     <Row class="row">
       {#each { length: numberOfColumns }}
-        <Column class="column">
-          {@render children?.()}
-        </Column>
+        <Column class="column" />
       {/each}
     </Row>
   </div>

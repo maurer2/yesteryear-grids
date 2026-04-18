@@ -1,15 +1,12 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
   import { title, description, grid } from "../Panel/Panel.svelte";
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
-    children: Snippet;
   };
-  let { numberOfColumns, children }: FloatsPaddingBasedProps = $props();
+  let { numberOfColumns }: FloatsPaddingBasedProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -19,9 +16,7 @@
 {#snippet gridContent()}
   <Row class="row">
     {#each { length: numberOfColumns }}
-      <Column class="column">
-        {@render children?.()}</Column
-      >
+      <Column class="column" />
     {/each}
   </Row>
 {/snippet}

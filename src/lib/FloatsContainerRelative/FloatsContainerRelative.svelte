@@ -1,15 +1,12 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
   import { title, description, grid } from "../Panel/Panel.svelte";
 
   type FloatsContainerRelativeProps = {
     numberOfColumns: number;
-    children: Snippet;
   };
-  let { numberOfColumns, children }: FloatsContainerRelativeProps = $props();
+  let { numberOfColumns }: FloatsContainerRelativeProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -19,9 +16,7 @@
 {#snippet gridContent()}
   <Row class="row">
     {#each { length: numberOfColumns }}
-      <Column>
-        {@render children?.()}</Column
-      >
+      <Column />
     {/each}
   </Row>
 {/snippet}
@@ -36,6 +31,8 @@
   )}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
+
+  <!-- {@render Panel(title, descriptionContent, gridContent)} -->
 </section>
 
 <style>

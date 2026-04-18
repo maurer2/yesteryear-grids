@@ -1,16 +1,12 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
   import { title, description, grid } from "../Panel/Panel.svelte";
 
   type InlineBlockWithTextAlignJustifyProps = {
     numberOfColumns: number;
-    children: Snippet;
   };
-  let { numberOfColumns, children }: InlineBlockWithTextAlignJustifyProps =
-    $props();
+  let { numberOfColumns }: InlineBlockWithTextAlignJustifyProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -20,9 +16,7 @@
 {#snippet gridContent()}
   <Row class="row">
     {#each { length: numberOfColumns } as _, index}
-      <Column class="column">
-        {@render children?.()}
-      </Column>
+      <Column class="column" />
       {#if index === numberOfColumns - 1}
         <span class="spacer"></span>
       {/if}

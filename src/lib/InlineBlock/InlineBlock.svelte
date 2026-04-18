@@ -1,15 +1,12 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
   import { title, description, grid } from "../Panel/Panel.svelte";
 
   type InlineBlockProps = {
     numberOfColumns: number;
-    children: Snippet;
   };
-  let { numberOfColumns, children }: InlineBlockProps = $props();
+  let { numberOfColumns }: InlineBlockProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -19,9 +16,7 @@
 {#snippet gridContent()}
   <Row class="row">
     {#each { length: numberOfColumns }}
-      <Column class="column">
-        {@render children?.()}</Column
-      >
+      <Column class="column" />
     {/each}
   </Row>
 {/snippet}

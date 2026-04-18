@@ -1,8 +1,6 @@
 <script lang="ts">
   import IntroPanel from "./lib/IntroPanel/IntroPanel.svelte";
 
-  import { LoremIpsum } from "lorem-ipsum";
-
   import FloatsPaddingBased from "./lib/FloatsPaddingBased/FloatsPaddingBased.svelte";
   import FloatsMarginBased from "./lib/FloatsMarginBased/FloatsMarginBased.svelte";
   import FloatsContainerRelative from "./lib/FloatsContainerRelative/FloatsContainerRelative.svelte";
@@ -19,7 +17,7 @@
   //   id: string;
   // }[];
 
-  const numberOfColumns = 5;
+  const numberOfColumns = 12;
 </script>
 
 <header class="header">
@@ -35,28 +33,22 @@
   "
 >
   <div class="panel-full-height">
-    <FloatsPaddingBased {numberOfColumns}>{columnText}</FloatsPaddingBased>
+    <FloatsPaddingBased {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <FloatsMarginBased {numberOfColumns}>{columnText}</FloatsMarginBased>
+    <FloatsMarginBased {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <FloatsContainerRelative {numberOfColumns}
-      >{columnText}</FloatsContainerRelative
-    >
+    <FloatsContainerRelative {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <InlineBlock {numberOfColumns}>{columnText}</InlineBlock>
+    <InlineBlock {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <InlineBlockWithTextAlignJustify {numberOfColumns}
-      >{columnText}</InlineBlockWithTextAlignJustify
-    >
+    <InlineBlockWithTextAlignJustify {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <TableWithBorderSpacing {numberOfColumns}
-      >{columnText}</TableWithBorderSpacing
-    >
+    <TableWithBorderSpacing {numberOfColumns} />
   </div>
 </main>
 
