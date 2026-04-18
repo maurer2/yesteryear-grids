@@ -54,8 +54,5 @@
 
 <style>
   @layer components {
-    .header {
-      --background-angle: -135deg;
-    }
   }
 </style>

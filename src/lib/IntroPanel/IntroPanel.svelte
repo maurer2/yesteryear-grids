@@ -2,14 +2,12 @@
   import { description } from "../Panel/Panel.svelte";
 </script>
 
-{#snippet descriptionContent()}
-  <p>An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS.</p>
-{/snippet}
-
 <div class="card">
   <h1 class="section-headline">Grids of yesteryear</h1>
 
-  {@render description(descriptionContent)}
+  <div class="description">
+    <p>An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS.</p>
+  </div>
 
   <!--
     <ul>
@@ -20,5 +18,14 @@
 
 <style>
   @layer components {
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      & > p {
+        margin: 0;
+      }
+    }
   }
 </style>

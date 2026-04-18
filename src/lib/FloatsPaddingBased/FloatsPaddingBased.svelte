@@ -2,6 +2,7 @@
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
   import { title, description, grid } from "../Panel/Panel.svelte";
+  import { dummyText } from "../../assets/lorem-ipsum";
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
@@ -10,7 +11,9 @@
 </script>
 
 {#snippet descriptionContent()}
-  <p>Todo</p>
+  {#each dummyText as paragraph}
+    <p>{paragraph}</p>
+  {/each}
 {/snippet}
 
 {#snippet gridContent()}

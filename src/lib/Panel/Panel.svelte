@@ -5,13 +5,13 @@
 </script>
 
 {#snippet title(title: string)}
-  <h2>
+  <h2 class="section-subheadline">
     {title}
   </h2>
 {/snippet}
 
 {#snippet description(description: Snippet)}
-  <div class="description">{@render description()}</div>
+  <div class="description multi-column">{@render description()}</div>
 {/snippet}
 
 {#snippet grid(grid: Snippet)}
