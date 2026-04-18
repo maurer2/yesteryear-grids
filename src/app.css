@@ -1,6 +1,7 @@
 @layer reset, base, components, utilities;
 
 @import "modern-normalize" layer(reset);
+@import "node_modules/@catppuccin/palette/css/catppuccin.css" layer(base);
 
 @layer base {
   :root {

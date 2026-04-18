@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@catppuccin/palette':
+        specifier: ^1.8.0
+        version: 1.8.0
       csstype:
         specifier: ^3.2.3
         version: 3.2.3
@@ -44,6 +47,9 @@ importers:
         version: 8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@24.12.2)
 
 packages:
+
+  '@catppuccin/palette@1.8.0':
+    resolution: {integrity: sha512-qXhwKiLzQomUygUJYB36YAFgs+dET5bIocfkiaFIatQF5Pwc7L112TlF9P8J5Oqs3x3XTjYSucG0ncHXSCuk7Q==}
 
   '@emnapi/core@1.9.2':
     resolution: {integrity: sha512-UC+ZhH3XtczQYfOlu3lNEkdW/p4dsJ1r/bP7H8+rhao3TTTMO1ATq/4DdIi23XuGoFY+Cz0JmCbdVl0hz9jZcA==}
@@ -489,6 +495,8 @@ packages:
     resolution: {integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==}
 
 snapshots:
+
+  '@catppuccin/palette@1.8.0': {}
 
   '@emnapi/core@1.9.2':
     dependencies:

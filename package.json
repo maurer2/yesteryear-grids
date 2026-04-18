@@ -19,6 +19,7 @@
     "vite": "^8.0.4"
   },
   "dependencies": {
+    "@catppuccin/palette": "^1.8.0",
     "csstype": "^3.2.3",
     "lorem-ipsum": "^2.0.8",
     "modern-normalize": "^3.0.1",
