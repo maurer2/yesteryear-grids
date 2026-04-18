@@ -19,7 +19,6 @@
   //   id: string;
   // }[];
 
-  const columnText = new LoremIpsum().generateParagraphs(1);
   const numberOfColumns = 5;
 </script>
 
