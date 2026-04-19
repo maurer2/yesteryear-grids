@@ -1,0 +1,13 @@
+.row {
+  display: flow-root;
+}
+
+.column {
+  inline-size: var(--size-of-column);
+  margin-inline-start: var(--gutter-size);
+  float: inline-start;
+
+  &:first-child {
+    margin-inline-start: 0;
+  }
+}

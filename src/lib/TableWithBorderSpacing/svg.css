@@ -1,0 +1,15 @@
+.wrapper {
+  margin-inline: calc(var(--gutter-size) * -1);
+}
+
+.row {
+  display: table;
+  border-collapse: separate;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: var(--gutter-size) 0; /* order of values is reversed: horizontal vertical */
+}
+
+.column {
+  display: table-cell;
+}

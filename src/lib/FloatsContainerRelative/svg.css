@@ -1,0 +1,12 @@
+.row {
+  display: flow-root;
+}
+
+.column {
+  inline-size: var(--size-of-column);
+  margin-inline-start: calc(
+    (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
+  );
+  margin-inline-end: -100%;
+  float: inline-start;
+}

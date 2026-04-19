@@ -1,0 +1,19 @@
+.row {
+  text-align: justify;
+  line-height: 0;
+}
+
+.column {
+  display: inline-block;
+  inline-size: var(--size-of-column);
+  margin-block-end: -7px; /* compensate for spacer element */
+  line-height: normal;
+  text-align: start;
+}
+
+/* neccessary as "&::after" on row container doesn't work; it needs to be a real element */
+.spacer {
+  display: inline-block;
+  inline-size: 100%;
+  block-size: 0;
+}
