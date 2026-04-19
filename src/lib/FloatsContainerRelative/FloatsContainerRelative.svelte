@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Row from "../Row/Row.svelte";
-  import Column from "../Column/Column.svelte";
-  import { title, description, grid, markup } from "../Panel/Panel.svelte";
-  import css from "./svg.css?raw";
+  import Row from '../Row/Row.svelte';
+  import Column from '../Column/Column.svelte';
+  import { title, description, grid, markup } from '../Panel/Panel.svelte';
+  import css from './svg.css?raw';
 
   type FloatsContainerRelativeProps = {
     numberOfColumns: number;
@@ -20,12 +20,10 @@
 
 <section
   class="card"
-  style:--gutter-size-total={"calc((var(--number-of-columns) - 1) * var(--gutter-size))"}
-  style:--size-of-column={"calc((100% - var(--gutter-size-total)) / var(--number-of-columns))"}
+  style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
+  style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title(
-    "Container relative floats (Zen grids, Susy Grids with isolate-mixin)",
-  )}
+  {@render title('Container relative floats (Zen grids, Susy Grids with isolate-mixin)')}
   {@render description()}
   {@render grid(gridContent)}
   {@render markup(css)}

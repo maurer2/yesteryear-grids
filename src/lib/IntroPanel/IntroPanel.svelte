@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { description } from "../Panel/Panel.svelte";
+  import { description } from '../Panel/Panel.svelte';
 </script>
 
 <div class="card">
@@ -7,8 +7,7 @@
 
   <div class="description">
     <p>
-      An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS with
-      modern CSS syntax.
+      An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS with modern CSS syntax.
     </p>
   </div>
 

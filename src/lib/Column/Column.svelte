@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-  import type { HTMLAttributes } from "svelte/elements";
+  import type { Snippet } from 'svelte';
+  import type { HTMLAttributes } from 'svelte/elements';
 
-  type ColumnProps = Omit<HTMLAttributes<HTMLDivElement>, "class"> & {
+  type ColumnProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
     class?: string;
     children?: Snippet;
   };
@@ -10,7 +10,7 @@
   let { children, class: className, ...rest }: ColumnProps = $props();
 </script>
 
-<div class={["column", className]} {...rest}>
+<div class={['column', className]} {...rest}>
   <span class="label">Column</span>
 </div>
 

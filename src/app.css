@@ -1,6 +1,6 @@
 @layer reset, base, components, utilities;
 
-@import "modern-normalize" layer(reset);
+@import 'modern-normalize' layer(reset);
 /* @import "node_modules/@catppuccin/palette/css/catppuccin.css" layer(base); */
 
 @layer base {
@@ -78,6 +78,7 @@
     flex-direction: column;
     inline-size: min(100% - 2rem, 120ch);
     margin-inline: auto;
+    margin-block: 2rem;
     padding: 2rem;
     justify-content: center;
     gap: 1rem;

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Row from "../Row/Row.svelte";
-  import Column from "../Column/Column.svelte";
-  import { title, description, grid, markup } from "../Panel/Panel.svelte";
-  import css from "./svg.css?raw";
+  import Row from '../Row/Row.svelte';
+  import Column from '../Column/Column.svelte';
+  import { title, description, grid, markup } from '../Panel/Panel.svelte';
+  import css from './svg.css?raw';
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
@@ -18,13 +18,8 @@
   </Row>
 {/snippet}
 
-<section
-  class="card"
-  style:--size-of-column={"calc(100% / var(--number-of-columns))"}
->
-  {@render title(
-    "Padding-based float grid with gutters in children (Boostrap 2 and 3)",
-  )}
+<section class="card" style:--size-of-column={'calc(100% / var(--number-of-columns))'}>
+  {@render title('Padding-based float grid with gutters in children (Boostrap 2 and 3)')}
   {@render description()}
   {@render grid(gridContent)}
   {@render markup(css)}

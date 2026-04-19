@@ -1,16 +1,16 @@
 <script module lang="ts">
-  import type { Snippet } from "svelte";
-  import { codeToHtml } from "shiki";
+  import type { Snippet } from 'svelte';
+  import { codeToHtml } from 'shiki';
 
-  import { dummyText } from "../../assets/lorem-ipsum";
+  import { dummyText } from '../../assets/lorem-ipsum';
 
   type CodeToHtmlOptions = Parameters<typeof codeToHtml>[1];
 
   const codeToHtmlOptions: CodeToHtmlOptions = {
-    lang: "css",
-    theme: "catppuccin-latte",
+    lang: 'css',
+    theme: 'catppuccin-latte',
     colorReplacements: {
-      "#eff1f5": "var(--bg-soft)",
+      '#eff1f5': 'var(--bg-soft)',
     },
   };
 

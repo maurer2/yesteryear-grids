@@ -47,7 +47,9 @@
         },
         // react-compiler-marker
         "reactCompilerMarker.successEmoji": "✅",
-        "reactCompilerMarker.errorEmoji": "🚫"
+        "reactCompilerMarker.errorEmoji": "🚫",
+        // prettier
+        "prettier.prettierPath": "./node_modules/prettier"
       },
       "extensions": [
         "aaron-bond.better-comments",

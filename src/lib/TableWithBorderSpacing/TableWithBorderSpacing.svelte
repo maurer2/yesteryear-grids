@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Row from "../Row/Row.svelte";
-  import Column from "../Column/Column.svelte";
-  import { title, description, grid, markup } from "../Panel/Panel.svelte";
-  import css from "./svg.css?raw";
+  import Row from '../Row/Row.svelte';
+  import Column from '../Column/Column.svelte';
+  import { title, description, grid, markup } from '../Panel/Panel.svelte';
+  import css from './svg.css?raw';
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
@@ -21,9 +21,7 @@
 {/snippet}
 
 <section class="card">
-  {@render title(
-    "Table with border spacing and table-layout fixed grid (mdo/table-grid)",
-  )}
+  {@render title('Table with border spacing and table-layout fixed grid (mdo/table-grid)')}
   {@render description()}
   {@render grid(gridContent)}
   {@render markup(css)}
