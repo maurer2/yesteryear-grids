@@ -1,17 +1,14 @@
 <script lang="ts">
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
-  import { title, description, grid } from "../Panel/Panel.svelte";
+  import { title, description, grid, markup } from "../Panel/Panel.svelte";
+  import css from "./svg.css?raw";
 
   type InlineBlockWithTextAlignJustifyProps = {
     numberOfColumns: number;
   };
   let { numberOfColumns }: InlineBlockWithTextAlignJustifyProps = $props();
 </script>
-
-{#snippet descriptionContent()}
-  <p>Todo</p>
-{/snippet}
 
 {#snippet gridContent()}
   <Row class="row">
@@ -30,8 +27,9 @@
   style:--size-of-column={"calc((100% - var(--gutter-size-total)) / var(--number-of-columns))"}
 >
   {@render title("Inline block grids with text align justify")}
-  {@render description(descriptionContent)}
+  {@render description()}
   {@render grid(gridContent)}
+  {@render markup(css)}
 </section>
 
 <style>

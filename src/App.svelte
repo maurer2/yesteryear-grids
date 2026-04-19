@@ -1,14 +1,13 @@
 <script lang="ts">
-  import IntroPanel from "./lib/IntroPanel/IntroPanel.svelte";
+  import { innerWidth } from "svelte/reactivity/window";
 
+  import IntroPanel from "./lib/IntroPanel/IntroPanel.svelte";
   import FloatsPaddingBased from "./lib/FloatsPaddingBased/FloatsPaddingBased.svelte";
   import FloatsMarginBased from "./lib/FloatsMarginBased/FloatsMarginBased.svelte";
   import FloatsContainerRelative from "./lib/FloatsContainerRelative/FloatsContainerRelative.svelte";
   import InlineBlock from "./lib/InlineBlock/InlineBlock.svelte";
   import InlineBlockWithTextAlignJustify from "./lib/InlineBlockWithTextAlignJustify/InlineBlockWithTextAlignJustify.svelte";
   import TableWithBorderSpacing from "./lib/TableWithBorderSpacing/TableWithBorderSpacing.svelte";
-
-  import { description, title } from "./lib/Panel/Panel.svelte";
 
   // const sections = [
   //   { label: "Basic float grid", id: "basic float-grid" },
@@ -17,7 +16,9 @@
   //   id: string;
   // }[];
 
-  const numberOfColumns = 12;
+  const numberOfColumns = $derived.by(() =>
+    innerWidth?.current !== undefined && innerWidth?.current >= 600 ? 12 : 6,
+  );
 </script>
 
 <header class="header">

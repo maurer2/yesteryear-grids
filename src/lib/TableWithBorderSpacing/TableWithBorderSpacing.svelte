@@ -1,17 +1,14 @@
 <script lang="ts">
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
-  import { title, description, grid } from "../Panel/Panel.svelte";
+  import { title, description, grid, markup } from "../Panel/Panel.svelte";
+  import css from "./svg.css?raw";
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
   };
   let { numberOfColumns }: TableWithBorderSpacingProps = $props();
 </script>
-
-{#snippet descriptionContent()}
-  <p>Todo</p>
-{/snippet}
 
 {#snippet gridContent()}
   <div class="wrapper">
@@ -27,8 +24,9 @@
   {@render title(
     "Table with border spacing and table-layout fixed grid (mdo/table-grid)",
   )}
-  {@render description(descriptionContent)}
+  {@render description()}
   {@render grid(gridContent)}
+  {@render markup(css)}
 </section>
 
 <style>

@@ -1,5 +1,5 @@
 {
-  "name": "hagrid",
+  "name": "yesteryear-grids",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,7 @@
     "generate:svg": "node ./src/helpers/generate-styles-svg.ts '**/*/svg.css'"
   },
   "devDependencies": {
+    "@catppuccin/palette": "^1.8.0",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@tsconfig/svelte": "^5.0.8",
     "@types/node": "^24.12.2",
@@ -22,7 +23,6 @@
     "fast-glob": "^3.3.3"
   },
   "dependencies": {
-    "@catppuccin/palette": "^1.8.0",
     "csstype": "^3.2.3",
     "modern-normalize": "^3.0.1",
     "type-fest": "^5.5.0"

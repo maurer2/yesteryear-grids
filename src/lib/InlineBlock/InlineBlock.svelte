@@ -1,17 +1,14 @@
 <script lang="ts">
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
-  import { title, description, grid } from "../Panel/Panel.svelte";
+  import { title, description, grid, markup } from "../Panel/Panel.svelte";
+  import css from "./svg.css?raw";
 
   type InlineBlockProps = {
     numberOfColumns: number;
   };
   let { numberOfColumns }: InlineBlockProps = $props();
 </script>
-
-{#snippet descriptionContent()}
-  <p>Todo</p>
-{/snippet}
 
 {#snippet gridContent()}
   <Row class="row">
@@ -29,8 +26,9 @@
   {@render title(
     "Inline block grids (KayzenGS, Yahoo Pure, CSSWizardry-grids)",
   )}
-  {@render description(descriptionContent)}
+  {@render description()}
   {@render grid(gridContent)}
+  {@render markup(css)}
 </section>
 
 <style>

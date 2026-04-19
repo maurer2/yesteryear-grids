@@ -1,17 +1,14 @@
 <script lang="ts">
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
-  import { title, description, grid } from "../Panel/Panel.svelte";
+  import { title, description, grid, markup } from "../Panel/Panel.svelte";
+  import css from "./svg.css?raw";
 
   type FloatsContainerRelativeProps = {
     numberOfColumns: number;
   };
   let { numberOfColumns }: FloatsContainerRelativeProps = $props();
 </script>
-
-{#snippet descriptionContent()}
-  <p>Todo</p>
-{/snippet}
 
 {#snippet gridContent()}
   <Row class="row">
@@ -29,8 +26,9 @@
   {@render title(
     "Container relative floats (Zen grids, Susy Grids with isolate-mixin)",
   )}
-  {@render description(descriptionContent)}
+  {@render description()}
   {@render grid(gridContent)}
+  {@render markup(css)}
 
   <!-- {@render Panel(title, descriptionContent, gridContent)} -->
 </section>

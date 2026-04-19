@@ -3,7 +3,7 @@
 </script>
 
 <div class="card">
-  <h1 class="section-headline">Grids of yesteryear</h1>
+  <h1 class="section-headline">Yester&shy;year-grids</h1>
 
   <div class="description">
     <p>An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS.</p>

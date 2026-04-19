@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@catppuccin/palette':
-        specifier: ^1.8.0
-        version: 1.8.0
       csstype:
         specifier: ^3.2.3
         version: 3.2.3
@@ -21,6 +18,9 @@ importers:
         specifier: ^5.5.0
         version: 5.5.0
     devDependencies:
+      '@catppuccin/palette':
+        specifier: ^1.8.0
+        version: 1.8.0
       '@sveltejs/vite-plugin-svelte':
         specifier: ^7.0.0
         version: 7.0.0(svelte@5.55.1)(vite@8.0.5(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@24.12.2))

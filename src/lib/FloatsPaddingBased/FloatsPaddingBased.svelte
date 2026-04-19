@@ -1,20 +1,14 @@
 <script lang="ts">
   import Row from "../Row/Row.svelte";
   import Column from "../Column/Column.svelte";
-  import { title, description, grid } from "../Panel/Panel.svelte";
-  import { dummyText } from "../../assets/lorem-ipsum";
+  import { title, description, grid, markup } from "../Panel/Panel.svelte";
+  import css from "./svg.css?raw";
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
   };
   let { numberOfColumns }: FloatsPaddingBasedProps = $props();
 </script>
-
-{#snippet descriptionContent()}
-  {#each dummyText as paragraph}
-    <p>{paragraph}</p>
-  {/each}
-{/snippet}
 
 {#snippet gridContent()}
   <Row class="row">
@@ -31,8 +25,9 @@
   {@render title(
     "Padding-based float grid with gutters in children (Boostrap 2 and 3)",
   )}
-  {@render description(descriptionContent)}
+  {@render description()}
   {@render grid(gridContent)}
+  {@render markup(css)}
 </section>
 
 <style>
