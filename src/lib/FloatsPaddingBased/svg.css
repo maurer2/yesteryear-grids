@@ -1,0 +1,10 @@
+.row {
+  display: flow-root;
+  margin-inline: calc(var(--gutter-size) / -2);
+}
+
+.column {
+  inline-size: var(--size-of-column);
+  padding-inline: calc(var(--gutter-size) / 2);
+  float: inline-start;
+}

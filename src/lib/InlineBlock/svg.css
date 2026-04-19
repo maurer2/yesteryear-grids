@@ -1,0 +1,17 @@
+.row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  letter-spacing: -1em;
+}
+
+.column {
+  display: inline-block;
+  inline-size: var(--size-of-column);
+  margin-inline-start: var(--gutter-size);
+  letter-spacing: normal;
+
+  &:first-child {
+    margin-inline-start: 0;
+  }
+}
