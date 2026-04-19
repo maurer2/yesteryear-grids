@@ -17,7 +17,7 @@
 <span class="line"><span style="color:#1E66F5">  margin-inline-start</span><span style="color:#179299">:</span><span style="color:#1E66F5;font-style:italic"> calc</span><span style="color:#7C7F93">(</span></span>
 <span class="line"><span style="color:#4C4F69">    (</span><span style="color:#1E66F5;font-style:italic">var</span><span style="color:#7C7F93">(</span><span style="color:#E64553">--size-of-column</span><span style="color:#7C7F93">)</span><span style="color:#179299"> +</span><span style="color:#1E66F5;font-style:italic"> var</span><span style="color:#7C7F93">(</span><span style="color:#E64553">--gutter-size</span><span style="color:#7C7F93">))</span><span style="color:#4C4F69"> * (sibling-index() - 1)</span></span>
 <span class="line"><span style="color:#4C4F69">  )</span><span style="color:#7C7F93">;</span></span>
-<span class="line"><span style="color:#1E66F5">  margin-inline-end</span><span style="color:#179299">:</span><span style="color:#FE640B"> -100%</span><span style="color:#7C7F93">;</span></span>
+<span class="line"><span style="color:#1E66F5">  margin-inline-end</span><span style="color:#179299">:</span><span style="color:#FE640B"> -100%</span><span style="color:#7C7F93">;</span><span style="color:#7C7F93;font-style:italic"> /* move every column to the left edge of container */</span></span>
 <span class="line"><span style="color:#1E66F5">  float</span><span style="color:#179299">:</span><span style="color:#4C4F69"> inline-start</span><span style="color:#7C7F93">;</span></span>
 <span class="line"><span style="color:#7C7F93">}</span></span>
 <span class="line"></span></code></pre>

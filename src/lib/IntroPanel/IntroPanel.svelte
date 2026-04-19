@@ -6,7 +6,10 @@
   <h1 class="section-headline">Yester&shy;year-grids</h1>
 
   <div class="description">
-    <p>An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS.</p>
+    <p>
+      An overview of pre-Flexbox and pre-CSS Grid layout techniques in CSS with
+      modern CSS syntax.
+    </p>
   </div>
 
   <!--
