@@ -1,18 +1,15 @@
 .row {
-  --gutter-size-total: calc(
-    (var(--number-of-columns) - 1) * var(--gutter-size)
-  );
-  --size-of-column: calc(
-      (100% - var(--gutter-size-total)) / var(--number-of-columns)
-    )
-    display: flow-root;
+  --number-of-columns: 12;
+  --gutter-size: 1rem;
+  --gutter-size-total: calc((var(--number-of-columns) - 1) * var(--gutter-size));
+  --size-of-column: calc((100% - var(--gutter-size-total)) / var(--number-of-columns));
+
+  display: flow-root;
 }
 
 .column {
   inline-size: var(--size-of-column);
-  margin-inline-start: calc(
-    (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
-  );
+  margin-inline-start: calc((var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1));
   margin-inline-end: -100%; /* move every column to the left edge of container */
   float: inline-start;
 }

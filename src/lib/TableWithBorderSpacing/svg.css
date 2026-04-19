@@ -1,5 +1,7 @@
 /* required as negative margin-inline-end is ignored on table elements */
 .wrapper {
+  --gutter-size: 1rem;
+
   margin-inline: calc(var(--gutter-size) * -1);
 }
 
