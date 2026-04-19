@@ -23,7 +23,7 @@
 
     --grid-line: oklch(0.88 0.015 260);
 
-    --viewport-base-unit: clamp(1rem, 0.75dvb + 0.75dvi, 3rem);
+    --viewport-base-unit: clamp(1rem, 0.5dvb + 0.5dvi, 3rem);
   }
 
   html {
@@ -49,6 +49,10 @@
   p {
     margin-block-start: 0;
   }
+
+  pre {
+    margin-block: 0;
+  }
 }
 
 @layer components {
@@ -72,13 +76,14 @@
   .card {
     display: flex;
     flex-direction: column;
-    inline-size: min(100% - 2rem, 100ch);
+    inline-size: min(100% - 2rem, 120ch);
     margin-inline: auto;
     padding: 2rem;
     justify-content: center;
     gap: 1rem;
     background: var(--bg-soft);
     border: 1px solid var(--border);
+    container-type: inline-size;
   }
 
   .button {

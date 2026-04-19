@@ -2,15 +2,16 @@
 <svg xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <pre class="shiki catppuccin-latte" style="background-color:#eff1f5;color:#4c4f69" tabindex="0"><code><span class="line"><span style="color:#7C7F93">.</span><span style="color:#DF8E1D">wrapper</span><span style="color:#7C7F93"> {</span></span>
+      <pre class="shiki catppuccin-latte" style="background-color:#eff1f5;color:#4c4f69" tabindex="0"><code><span class="line"><span style="color:#7C7F93;font-style:italic">/* required as negative margin-inline-end is ignored on table elements */</span></span>
+<span class="line"><span style="color:#7C7F93">.</span><span style="color:#DF8E1D">wrapper</span><span style="color:#7C7F93"> {</span></span>
 <span class="line"><span style="color:#1E66F5">  margin-inline</span><span style="color:#179299">:</span><span style="color:#1E66F5;font-style:italic"> calc</span><span style="color:#7C7F93">(</span><span style="color:#1E66F5;font-style:italic">var</span><span style="color:#7C7F93">(</span><span style="color:#E64553">--gutter-size</span><span style="color:#7C7F93">)</span><span style="color:#179299"> *</span><span style="color:#FE640B"> -1</span><span style="color:#7C7F93">);</span></span>
 <span class="line"><span style="color:#7C7F93">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#7C7F93">.</span><span style="color:#DF8E1D">row</span><span style="color:#7C7F93"> {</span></span>
 <span class="line"><span style="color:#1E66F5">  display</span><span style="color:#179299">:</span><span style="color:#4C4F69"> table</span><span style="color:#7C7F93">;</span></span>
 <span class="line"><span style="color:#1E66F5">  border-collapse</span><span style="color:#179299">:</span><span style="color:#4C4F69"> separate</span><span style="color:#7C7F93">;</span></span>
-<span class="line"><span style="color:#1E66F5">  width</span><span style="color:#179299">:</span><span style="color:#FE640B"> 100%</span><span style="color:#7C7F93">;</span></span>
 <span class="line"><span style="color:#1E66F5">  table-layout</span><span style="color:#179299">:</span><span style="color:#4C4F69"> fixed</span><span style="color:#7C7F93">;</span></span>
+<span class="line"><span style="color:#1E66F5">  inline-size</span><span style="color:#179299">:</span><span style="color:#FE640B"> 100%</span><span style="color:#7C7F93">;</span></span>
 <span class="line"><span style="color:#1E66F5">  border-spacing</span><span style="color:#179299">:</span><span style="color:#1E66F5;font-style:italic"> var</span><span style="color:#7C7F93">(</span><span style="color:#E64553">--gutter-size</span><span style="color:#7C7F93">)</span><span style="color:#FE640B"> 0</span><span style="color:#7C7F93">;</span><span style="color:#7C7F93;font-style:italic"> /* order of values is reversed: horizontal vertical */</span></span>
 <span class="line"><span style="color:#7C7F93">}</span></span>
 <span class="line"></span>

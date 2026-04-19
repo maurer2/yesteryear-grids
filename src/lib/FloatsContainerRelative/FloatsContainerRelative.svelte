@@ -47,7 +47,7 @@
           margin-inline-start: calc(
             (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
           );
-          margin-inline-end: -100%;
+          margin-inline-end: -100%; /* move every column to the left edge of container */
           float: inline-start;
         }
       }

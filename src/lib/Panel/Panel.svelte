@@ -10,7 +10,7 @@
     lang: "css",
     theme: "catppuccin-latte",
     colorReplacements: {
-      "#eff1f5": "--bg-soft",
+      "#eff1f5": "var(--bg-soft)",
     },
   };
 

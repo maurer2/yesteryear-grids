@@ -40,7 +40,7 @@
         :global(.row) {
           display: table;
           border-collapse: separate;
-          width: 100%;
+          inline-size: 100%;
           table-layout: fixed;
           border-spacing: var(--gutter-size) 0;
         }

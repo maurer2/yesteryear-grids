@@ -38,8 +38,8 @@
       & {
         :global(.row) {
           display: table;
-          width: 100%;
           table-layout: fixed;
+          inline-size: 100%;
           letter-spacing: -1em;
         }
 
