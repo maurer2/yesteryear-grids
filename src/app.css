@@ -53,6 +53,15 @@
   pre {
     margin-block: 0;
   }
+
+  ::marker {
+    color: var(--accent-primary);
+  }
+
+  ul {
+    padding: 0;
+    list-style-position: inside;
+  }
 }
 
 @layer components {
@@ -93,6 +102,14 @@
     border-radius: 8px;
     padding: 0.6rem 1rem;
   }
+
+  .code {
+    /* padding: 0.15lh 0.3lh; */
+    font-family: monospace;
+    font-size: 1rem;
+    font-style: italic;
+    background: var(--bg-soft);
+  }
 }
 
 @layer utilities {
@@ -113,6 +130,7 @@
     columns: 300px 3;
     column-gap: 2rem;
     column-rule: solid 1px var(--grid-line);
+
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;
@@ -120,5 +138,16 @@
     & > p {
       margin-block-end: 1rem;
     }
+  }
+
+  .no-indent {
+    margin: 0;
+    padding-inline-start: 0;
+    list-style: none; /* role="list" in safari except when inside nav */
+  }
+
+  .new-column {
+    break-after: column;
+    break-inside: avoid;
   }
 }
