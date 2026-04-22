@@ -10,6 +10,31 @@
   let { numberOfColumns }: FloatsContainerRelativeProps = $props();
 </script>
 
+{#snippet descriptionContent()}
+  <p>
+    This <em>float-based</em> grid uses <em>inline-margins</em> to position components relative to the
+    container. Each column is positioned independently from other columns to avoid rounding errors that
+    could cause wrapping.
+  </p>
+  <p>
+    Each column is floated to the left, taking it out of normal flow. A <em>margin-inline-end</em>
+    value of
+    <code class="code">-100%</code> pulls each column back to the left edge of the container and
+    overrides the default float behaviour where each float follows the previous one. The actual
+    positon of a column is then set via <em>margin-inline-start</em>.
+  </p>
+  <ul class="new-column">
+    <li>
+      <a href="https://susy.readthedocs.io/toolkit/#isolate">Susy — <em>isolate mixin</em></a>
+    </li>
+    <li>
+      <a href="https://github.com/JohnAlbin/zen-grids/blob/master/sass/zen-grids/_grids.scss"
+        >Zen Grids — <em>zen-grid-item mixin</em></a
+      >
+    </li>
+  </ul>
+{/snippet}
+
 {#snippet gridContent()}
   <Row class="row">
     {#each { length: numberOfColumns }}
@@ -23,8 +48,8 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Container relative floats (Zen grids, Susy Grids with isolate-mixin)')}
-  {@render description()}
+  {@render title('Isolated floats')}
+  {@render description(descriptionContent)}
   {@render grid(gridContent)}
   {@render markup(css)}
 

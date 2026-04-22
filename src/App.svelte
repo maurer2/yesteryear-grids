@@ -4,7 +4,7 @@
   import IntroPanel from './lib/IntroPanel/IntroPanel.svelte';
   import FloatsPaddingBased from './lib/FloatsPaddingBased/FloatsPaddingBased.svelte';
   import FloatsMarginBased from './lib/FloatsMarginBased/FloatsMarginBased.svelte';
-  import FloatsContainerRelative from './lib/FloatsContainerRelative/FloatsContainerRelative.svelte';
+  import FloatsIsolated from './lib/FloatsIsolated/FloatsIsolated.svelte';
   import InlineBlock from './lib/InlineBlock/InlineBlock.svelte';
   import InlineBlockWithTextAlignJustify from './lib/InlineBlockWithTextAlignJustify/InlineBlockWithTextAlignJustify.svelte';
   import TableWithBorderSpacing from './lib/TableWithBorderSpacing/TableWithBorderSpacing.svelte';
@@ -40,7 +40,7 @@
     <FloatsMarginBased {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <FloatsContainerRelative {numberOfColumns} />
+    <FloatsIsolated {numberOfColumns} />
   </div>
   <div class="panel-full-height">
     <InlineBlock {numberOfColumns} />
