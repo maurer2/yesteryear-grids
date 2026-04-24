@@ -127,7 +127,7 @@
   }
 
   .multi-column {
-    columns: 300px 3;
+    columns: 300px 2;
     column-gap: 2rem;
     column-rule: solid 1px var(--grid-line);
 
