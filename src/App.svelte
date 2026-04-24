@@ -6,7 +6,7 @@
   import FloatsMarginBased from './lib/FloatsMarginBased/FloatsMarginBased.svelte';
   import FloatsIsolated from './lib/FloatsIsolated/FloatsIsolated.svelte';
   import InlineBlock from './lib/InlineBlock/InlineBlock.svelte';
-  import InlineBlockWithTextAlignJustify from './lib/InlineBlockWithTextAlignJustify/InlineBlockWithTextAlignJustify.svelte';
+  import InlineBlockJustified from './lib/InlineBlockJustified/InlineBlockJustified.svelte';
   import TableWithBorderSpacing from './lib/TableWithBorderSpacing/TableWithBorderSpacing.svelte';
 
   // const sections = [
@@ -46,7 +46,7 @@
     <InlineBlock {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <InlineBlockWithTextAlignJustify {numberOfColumns} />
+    <InlineBlockJustified {numberOfColumns} />
   </div>
   <div class="panel-full-height">
     <TableWithBorderSpacing {numberOfColumns} />

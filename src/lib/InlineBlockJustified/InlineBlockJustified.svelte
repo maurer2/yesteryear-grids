@@ -10,6 +10,21 @@
   let { numberOfColumns }: InlineBlockWithTextAlignJustifyProps = $props();
 </script>
 
+{#snippet descriptionContent()}
+  <p>
+    This <em>inline-block-based</em> grid uses <code class="code">text-align: justify</code> to
+    create gutters between columns. To remove the whitespace between inline-block columns, the
+    parent row is set to <code class="code">font-size: 0</code> and reset in each column.
+  </p>
+  <p>
+    <code class="code">text-align: justify</code> distributes inline content evenly across the full
+    width of the row, creating equal gutters between columns. Since the last line of a justified
+    block is never justified, a <em>spacer</em> element is appended to the row so it wraps to the next
+    line, forcing the columns into a fully justified row. The block-size of the spacer must be compensated
+    for by applying a negative margin on the columns.
+  </p>
+{/snippet}
+
 {#snippet gridContent()}
   <Row class="row">
     {#each { length: numberOfColumns } as _, index}
@@ -26,8 +41,8 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Inline block grids with text align justify')}
-  {@render description()}
+  {@render title('Justified inline block grid')}
+  {@render description(descriptionContent)}
   {@render grid(gridContent)}
   {@render markup(css)}
 </section>
