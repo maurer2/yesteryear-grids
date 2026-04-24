@@ -36,9 +36,9 @@
 {/snippet}
 
 {#snippet grid(grid: Snippet)}
-  <div class="grid">
+  <!-- <div class="grid">
     {@render grid()}
-  </div>
+  </div> -->
 {/snippet}
 
 {#snippet markup(markup: string)}

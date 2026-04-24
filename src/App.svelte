@@ -19,41 +19,51 @@
   const numberOfColumns = $derived.by(() =>
     innerWidth?.current !== undefined && innerWidth?.current >= 600 ? 12 : 6,
   );
+  const isSupportingGridLanes = $derived.by(() => CSS.supports('display: grid-lanes'));
+  const panelClass = $derived.by(() => (isSupportingGridLanes ? '' : 'main'));
 </script>
 
-<header class="header">
-  <div class="panel-full-height">
-    <IntroPanel></IntroPanel>
-  </div>
-</header>
-<main
-  class="main"
-  style="
+<div class="mason2-ry">
+  <header class="header">
+    <div class={panelClass}>
+      <IntroPanel></IntroPanel>
+    </div>
+  </header>
+  {#each { length: 5 }, rank}
+    <main
+      class="main"
+      style="
     --number-of-columns: {numberOfColumns};
     --gutter-size: 1rem;
   "
->
-  <div class="panel-full-height">
-    <FloatsPaddingBased {numberOfColumns} />
-  </div>
-  <div class="panel-full-height">
-    <FloatsMarginBased {numberOfColumns} />
-  </div>
-  <div class="panel-full-height">
-    <FloatsIsolated {numberOfColumns} />
-  </div>
-  <div class="panel-full-height">
-    <InlineBlock {numberOfColumns} />
-  </div>
-  <div class="panel-full-height">
-    <InlineBlockJustified {numberOfColumns} />
-  </div>
-  <div class="panel-full-height">
-    <BorderSpacingTable {numberOfColumns} />
-  </div>
-</main>
+    >
+      <img src="https://picsum.photos/600/300" alt="" class="test-image" />
+      <div class={panelClass}>
+        <FloatsPaddingBased {numberOfColumns} />
+      </div>
+      <div class={panelClass}>
+        <FloatsMarginBased {numberOfColumns} />
+      </div>
+      <div class={panelClass}>
+        <FloatsIsolated {numberOfColumns} />
+      </div>
+      <div class={panelClass}>
+        <InlineBlock {numberOfColumns} />
+      </div>
+      <div class={panelClass}>
+        <InlineBlockJustified {numberOfColumns} />
+      </div>
+      <div class={panelClass}>
+        <BorderSpacingTable {numberOfColumns} />
+      </div>
+    </main>
+  {/each}
+</div>
 
 <style>
   @layer components {
+    .main {
+      display: contents;
+    }
   }
 </style>

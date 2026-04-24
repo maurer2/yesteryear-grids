@@ -29,7 +29,7 @@
   html {
     background: var(--bg);
     color: var(--text);
-    overflow: clip;
+    /* overflow: clip; */
     font-size: var(--viewport-base-unit);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -66,10 +66,8 @@
 
 @layer components {
   .scroll-snap-container {
-    block-size: 100dvb;
-    overflow-y: auto;
-    overflow-x: clip;
-    scroll-snap-type: y mandatory;
+    /* overflow-y: auto;
+    overflow-x: clip; */
   }
 
   .section-headline {
@@ -85,15 +83,14 @@
   .card {
     display: flex;
     flex-direction: column;
-    inline-size: min(100% - 2rem, 120ch);
     margin-inline: auto;
-    margin-block: 2rem;
     padding: 2rem;
     justify-content: center;
     gap: 1rem;
     background: var(--bg-soft);
     border: 1px solid var(--border);
     container-type: inline-size;
+    overflow: clip;
   }
 
   .button {
@@ -110,15 +107,24 @@
     font-style: italic;
     background: var(--bg-soft);
   }
+
+  .test-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
 }
 
 @layer utilities {
   .panel-full-height {
     display: flow-root;
-    min-block-size: 100dvb;
-    /* padding: 2rem; */
-    align-content: center;
-    scroll-snap-align: start;
+  }
+
+  .mason2-ry {
+    display: grid-lanes;
+    margin: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1rem;
   }
 
   .rounded-corner {
@@ -127,9 +133,9 @@
   }
 
   .multi-column {
-    columns: 300px 2;
+    /* columns: 300px 2;
     column-gap: 2rem;
-    column-rule: solid 1px var(--grid-line);
+    column-rule: solid 1px var(--grid-line); */
 
     text-align: justify;
     text-justify: inter-word;
