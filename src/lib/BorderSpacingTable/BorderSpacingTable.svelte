@@ -10,6 +10,22 @@
   let { numberOfColumns }: TableWithBorderSpacingProps = $props();
 </script>
 
+{#snippet descriptionContent()}
+  <p>
+    This <em>table-based</em> grid uses <em>border-spacing</em> to create gutters between columns
+    when <code class="code">border-collapse: separate</code> is set. <em>border-spacing</em> also
+    creates gutters between the first and last cell and the edge of the table. The gutters at the
+    start and end must be compensated for via negative margins. Negative <em>margin-inline</em> on a table
+    element are ignored in some browsers, so an additional wrapper is needed to apply the negative inline
+    margins.
+  </p>
+  <ul class="new-column">
+    <li>
+      <a href="https://github.com/mdo/table-grid">Table grid</a>
+    </li>
+  </ul>
+{/snippet}
+
 {#snippet gridContent()}
   <div class="wrapper">
     <Row class="row">
@@ -21,8 +37,8 @@
 {/snippet}
 
 <section class="card">
-  {@render title('Table with border spacing and table-layout fixed grid (mdo/table-grid)')}
-  {@render description()}
+  {@render title('Border spacing grid')}
+  {@render description(descriptionContent)}
   {@render grid(gridContent)}
   {@render markup(css)}
 </section>

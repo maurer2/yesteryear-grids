@@ -7,7 +7,7 @@
   import FloatsIsolated from './lib/FloatsIsolated/FloatsIsolated.svelte';
   import InlineBlock from './lib/InlineBlock/InlineBlock.svelte';
   import InlineBlockJustified from './lib/InlineBlockJustified/InlineBlockJustified.svelte';
-  import TableWithBorderSpacing from './lib/TableWithBorderSpacing/TableWithBorderSpacing.svelte';
+  import BorderSpacingTable from './lib/BorderSpacingTable/BorderSpacingTable.svelte';
 
   // const sections = [
   //   { label: "Basic float grid", id: "basic float-grid" },
@@ -49,7 +49,7 @@
     <InlineBlockJustified {numberOfColumns} />
   </div>
   <div class="panel-full-height">
-    <TableWithBorderSpacing {numberOfColumns} />
+    <BorderSpacingTable {numberOfColumns} />
   </div>
 </main>
 
