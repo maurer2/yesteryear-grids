@@ -1,13 +1,13 @@
 <script lang="ts">
   import { innerWidth } from 'svelte/reactivity/window';
 
-  import IntroPanel from './lib/IntroPanel/IntroPanel.svelte';
-  import FloatsPaddingBased from './lib/FloatsPaddingBased/FloatsPaddingBased.svelte';
-  import FloatsMarginBased from './lib/FloatsMarginBased/FloatsMarginBased.svelte';
-  import FloatsIsolated from './lib/FloatsIsolated/FloatsIsolated.svelte';
-  import InlineBlock from './lib/InlineBlock/InlineBlock.svelte';
-  import InlineBlockJustified from './lib/InlineBlockJustified/InlineBlockJustified.svelte';
-  import BorderSpacingTable from './lib/BorderSpacingTable/BorderSpacingTable.svelte';
+  import IntroPanel from '../lib/IntroPanel/IntroPanel.svelte';
+  import FloatsPaddingBased from '../lib/FloatsPaddingBased/FloatsPaddingBased.svelte';
+  import FloatsMarginBased from '../lib/FloatsMarginBased/FloatsMarginBased.svelte';
+  import FloatsIsolated from '../lib/FloatsIsolated/FloatsIsolated.svelte';
+  import InlineBlock from '../lib/InlineBlock/InlineBlock.svelte';
+  import InlineBlockJustified from '../lib/InlineBlockJustified/InlineBlockJustified.svelte';
+  import BorderSpacingTable from '../lib/BorderSpacingTable/BorderSpacingTable.svelte';
 
   // const sections = [
   //   { label: "Basic float grid", id: "basic float-grid" },
