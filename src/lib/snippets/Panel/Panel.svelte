@@ -2,7 +2,7 @@
   import type { Snippet } from 'svelte';
   import { codeToHtml } from 'shiki';
 
-  import { dummyText } from '../../assets/lorem-ipsum';
+  import { dummyText } from '../../../assets/lorem-ipsum';
 
   type CodeToHtmlOptions = Parameters<typeof codeToHtml>[1];
 

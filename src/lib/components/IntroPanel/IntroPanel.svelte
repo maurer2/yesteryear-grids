@@ -1,7 +1,3 @@
-<script lang="ts">
-  import { description } from '../Panel/Panel.svelte';
-</script>
-
 <div class="card">
   <h1 class="section-headline">Yester&shy;year-grids</h1>
 

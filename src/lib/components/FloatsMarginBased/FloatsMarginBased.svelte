@@ -1,7 +1,7 @@
 <script lang="ts">
   import Row from '../Row/Row.svelte';
   import Column from '../Column/Column.svelte';
-  import { title, description, grid, markup } from '../Panel/Panel.svelte';
+  import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
   import css from './svg.css?raw';
 
   type FloatsMarginBasedProps = {
