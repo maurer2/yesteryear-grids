@@ -2,12 +2,12 @@
   import Row from '../Row/Row.svelte';
   import Column from '../Column/Column.svelte';
   import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
-  import css from './svg.css?raw';
 
   type FloatsMarginBasedProps = {
     numberOfColumns: number;
+    cssListing?: string;
   };
-  let { numberOfColumns }: FloatsMarginBasedProps = $props();
+  let { numberOfColumns, cssListing }: FloatsMarginBasedProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -54,7 +54,9 @@
   {@render title('Margin-based float grid with gutters (single direction margins)')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
-  {@render markup(css)}
+  {#if cssListing}
+    {@render markup(cssListing)}
+  {/if}
 </section>
 
 <style>

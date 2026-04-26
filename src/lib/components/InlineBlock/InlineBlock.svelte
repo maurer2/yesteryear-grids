@@ -2,12 +2,12 @@
   import Row from '../Row/Row.svelte';
   import Column from '../Column/Column.svelte';
   import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
-  import css from './svg.css?raw';
 
   type InlineBlockProps = {
     numberOfColumns: number;
+    cssListing?: string;
   };
-  let { numberOfColumns }: InlineBlockProps = $props();
+  let { numberOfColumns, cssListing }: InlineBlockProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -62,7 +62,9 @@
   {@render title('Inline block grids')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
-  {@render markup(css)}
+  {#if cssListing}
+    {@render markup(cssListing)}
+  {/if}
 </section>
 
 <style>

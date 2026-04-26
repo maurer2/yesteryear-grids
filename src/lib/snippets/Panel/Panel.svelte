@@ -1,18 +1,7 @@
 <script module lang="ts">
   import type { Snippet } from 'svelte';
-  import { codeToHtml } from 'shiki';
 
   import { dummyText } from '../../../assets/lorem-ipsum';
-
-  type CodeToHtmlOptions = Parameters<typeof codeToHtml>[1];
-
-  const codeToHtmlOptions: CodeToHtmlOptions = {
-    lang: 'css',
-    theme: 'catppuccin-latte',
-    colorReplacements: {
-      '#eff1f5': 'var(--bg-soft)',
-    },
-  };
 
   export { title, description, grid, markup };
 </script>
@@ -42,8 +31,7 @@
 {/snippet}
 
 {#snippet markup(markup: string)}
-  {@const html = await codeToHtml(markup, codeToHtmlOptions)}
   <div class="markup">
-    {@html html}
+    {@html markup}
   </div>
 {/snippet}

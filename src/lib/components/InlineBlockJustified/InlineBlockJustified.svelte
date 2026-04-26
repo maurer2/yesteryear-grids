@@ -2,12 +2,12 @@
   import Row from '../Row/Row.svelte';
   import Column from '../Column/Column.svelte';
   import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
-  import css from './svg.css?raw';
 
   type InlineBlockWithTextAlignJustifyProps = {
     numberOfColumns: number;
+    cssListing?: string;
   };
-  let { numberOfColumns }: InlineBlockWithTextAlignJustifyProps = $props();
+  let { numberOfColumns, cssListing }: InlineBlockWithTextAlignJustifyProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -44,7 +44,9 @@
   {@render title('Justified inline block grid')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
-  {@render markup(css)}
+  {#if cssListing}
+    {@render markup(cssListing)}
+  {/if}
 </section>
 
 <style>

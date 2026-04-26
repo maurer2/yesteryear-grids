@@ -1,7 +1,9 @@
 <script lang="ts">
   import { innerWidth } from 'svelte/reactivity/window';
+  import type { PageData } from './$types';
 
   import IntroPanel from '../lib/components/IntroPanel/IntroPanel.svelte';
+
   import FloatsPaddingBased from '../lib/components/FloatsPaddingBased/FloatsPaddingBased.svelte';
   import FloatsMarginBased from '../lib/components/FloatsMarginBased/FloatsMarginBased.svelte';
   import FloatsIsolated from '../lib/components/FloatsIsolated/FloatsIsolated.svelte';
@@ -9,21 +11,22 @@
   import InlineBlockJustified from '../lib/components/InlineBlockJustified/InlineBlockJustified.svelte';
   import BorderSpacingTable from '../lib/components/BorderSpacingTable/BorderSpacingTable.svelte';
 
-  // const sections = [
-  //   { label: "Basic float grid", id: "basic float-grid" },
-  // ] as const satisfies {
-  //   label: string;
-  //   id: string;
-  // }[];
+  type PageProps = {
+    data: PageData;
+  };
 
-  const numberOfColumns = $derived.by(() =>
-    innerWidth?.current !== undefined && innerWidth?.current >= 600 ? 12 : 6,
+  const { data }: PageProps = $props();
+
+  const numberOfColumns = $derived(
+    innerWidth?.current !== undefined && innerWidth.current >= 600 ? 12 : 6,
   );
+  const cssFilesWithSyntaxHighlighting = $derived(data.cssFilesWithSyntaxHighlighting);
+  //$inspect(cssFilesWithSyntaxHighlighting);
 </script>
 
 <header class="header">
   <div class="panel-full-height">
-    <IntroPanel></IntroPanel>
+    <IntroPanel />
   </div>
 </header>
 <main
@@ -34,22 +37,40 @@
   "
 >
   <div class="panel-full-height">
-    <FloatsPaddingBased {numberOfColumns} />
+    <FloatsPaddingBased
+      cssListing={cssFilesWithSyntaxHighlighting.get('floatsPaddingBasedCSS')}
+      {numberOfColumns}
+    />
   </div>
   <div class="panel-full-height">
-    <FloatsMarginBased {numberOfColumns} />
+    <FloatsMarginBased
+      cssListing={cssFilesWithSyntaxHighlighting.get('floatsMarginBasedCSS')}
+      {numberOfColumns}
+    />
   </div>
   <div class="panel-full-height">
-    <FloatsIsolated {numberOfColumns} />
+    <FloatsIsolated
+      cssListing={cssFilesWithSyntaxHighlighting.get('floatsIsolatedCSS')}
+      {numberOfColumns}
+    />
   </div>
   <div class="panel-full-height">
-    <InlineBlock {numberOfColumns} />
+    <InlineBlock
+      cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockCSS')}
+      {numberOfColumns}
+    />
   </div>
   <div class="panel-full-height">
-    <InlineBlockJustified {numberOfColumns} />
+    <InlineBlockJustified
+      cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockJustifiedCSS')}
+      {numberOfColumns}
+    />
   </div>
   <div class="panel-full-height">
-    <BorderSpacingTable {numberOfColumns} />
+    <BorderSpacingTable
+      cssListing={cssFilesWithSyntaxHighlighting.get('borderSpacingTableCSS')}
+      {numberOfColumns}
+    />
   </div>
 </main>
 

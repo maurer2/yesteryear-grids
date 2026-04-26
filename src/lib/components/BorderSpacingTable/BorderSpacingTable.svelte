@@ -2,12 +2,12 @@
   import Row from '../Row/Row.svelte';
   import Column from '../Column/Column.svelte';
   import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
-  import css from './svg.css?raw';
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
+    cssListing?: string;
   };
-  let { numberOfColumns }: TableWithBorderSpacingProps = $props();
+  let { numberOfColumns, cssListing }: TableWithBorderSpacingProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -40,7 +40,9 @@
   {@render title('Border spacing grid')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
-  {@render markup(css)}
+  {#if cssListing}
+    {@render markup(cssListing)}
+  {/if}
 </section>
 
 <style>

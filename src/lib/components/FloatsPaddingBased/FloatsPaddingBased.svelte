@@ -2,12 +2,12 @@
   import Row from '../Row/Row.svelte';
   import Column from '../Column/Column.svelte';
   import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
-  import css from './svg.css?raw';
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
+    cssListing?: string;
   };
-  let { numberOfColumns }: FloatsPaddingBasedProps = $props();
+  let { numberOfColumns, cssListing }: FloatsPaddingBasedProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -48,7 +48,9 @@
   {@render title('Padding-based float grid with gutters via padding')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
-  {@render markup(css)}
+  {#if cssListing}
+    {@render markup(cssListing)}
+  {/if}
 </section>
 
 <style>
