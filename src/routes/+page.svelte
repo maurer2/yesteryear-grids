@@ -9,6 +9,7 @@
   import FloatsIsolated from '../lib/components/FloatsIsolated/FloatsIsolated.svelte';
   import InlineBlock from '../lib/components/InlineBlock/InlineBlock.svelte';
   import InlineBlockJustified from '../lib/components/InlineBlockJustified/InlineBlockJustified.svelte';
+  import InlineBlockJustifiedTextAlignLast from '../lib/components/InlineBlockJustifiedTextAlignLast/InlineBlockJustifiedTextAlignLast.svelte';
   import BorderSpacingTable from '../lib/components/BorderSpacingTable/BorderSpacingTable.svelte';
 
   type PageProps = {
@@ -63,6 +64,12 @@
   <div class="panel-full-height">
     <InlineBlockJustified
       cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockJustifiedCSS')}
+      {numberOfColumns}
+    />
+  </div>
+  <div class="panel-full-height">
+    <InlineBlockJustifiedTextAlignLast
+      cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockJustifiedTextAlignLastCSS')}
       {numberOfColumns}
     />
   </div>

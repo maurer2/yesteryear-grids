@@ -1,0 +1,16 @@
+.row {
+  --number-of-columns: 12;
+  --gutter-size: 1rem;
+  --gutter-size-total: calc((var(--number-of-columns) - 1) * var(--gutter-size));
+  --size-of-column: calc((100% - var(--gutter-size-total)) / var(--number-of-columns));
+
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.column {
+  display: inline-block;
+  inline-size: var(--size-of-column);
+  text-align: center;
+  text-align-last: center;
+}

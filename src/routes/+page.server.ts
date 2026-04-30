@@ -6,6 +6,7 @@ import FloatsMarginBasedCSS from '../lib/components/FloatsMarginBased/svg.css?ra
 import FloatsIsolatedCSS from '../lib/components/FloatsIsolated/svg.css?raw';
 import InlineBlockCSS from '../lib/components/InlineBlock/svg.css?raw';
 import InlineBlockJustifiedCSS from '../lib/components/InlineBlockJustified/svg.css?raw';
+import InlineBlockJustifiedTextAlignLastCSS from '../lib/components/InlineBlockJustifiedTextAlignLast/svg.css?raw';
 import BorderSpacingTableCSS from '../lib/components/BorderSpacingTable/svg.css?raw';
 
 const cssFiles = {
@@ -14,6 +15,7 @@ const cssFiles = {
   floatsIsolatedCSS: FloatsIsolatedCSS,
   inlineBlockCSS: InlineBlockCSS,
   inlineBlockJustifiedCSS: InlineBlockJustifiedCSS,
+  inlineBlockJustifiedTextAlignLastCSS: InlineBlockJustifiedTextAlignLastCSS,
   borderSpacingTableCSS: BorderSpacingTableCSS,
 } as const;
 type CSSFilesKeys = keyof typeof cssFiles;
