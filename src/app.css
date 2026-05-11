@@ -87,13 +87,39 @@
     flex-direction: column;
     inline-size: min(100% - 2rem, 120ch);
     margin-inline: auto;
-    margin-block: 2rem;
+    margin-block: 1rem;
     padding: 2rem;
     justify-content: center;
     gap: 1rem;
     background: var(--bg-soft);
     border: 1px solid var(--border);
     container-type: inline-size;
+
+    @media screen and (prefers-reduced-motion: no-preference) {
+      /* https://developer.chrome.com/blog/scroll-triggered-animations */
+
+      trigger-scope: --t;
+
+      timeline-trigger-name: --t;
+      timeline-trigger-source: view();
+
+      /* start timeline when x of element is visible */
+      /* timeline-trigger-range-start: contain 10%; */
+      timeline-trigger-activation-range-start: entry-crossing;
+
+      /* end timeline when x of element is visible */
+      /* timeline-trigger-range-end: contain 90%; */
+      timeline-trigger-activation-range-end: exit-crossing;
+
+      /* start timeline reverse when x of element becomes invisible */
+      timeline-trigger-exit-range-start: exit 0%;
+
+      /* end timeline reverse when x of element becomes invisible */
+      timeline-trigger-exit-range-end: exit 100%;
+
+      animation: powerpoint 0.5s ease-in-out both;
+      animation-trigger: --t play-forwards play-backwards;
+    }
   }
 
   .button {
@@ -115,10 +141,10 @@
 @layer utilities {
   .panel-full-height {
     display: flow-root;
-    min-block-size: 100dvb;
+    /* min-block-size: 100dvb; */
     /* padding: 2rem; */
-    align-content: center;
-    scroll-snap-align: start;
+    /* align-content: center; */
+    /* scroll-snap-align: start; */
   }
 
   .rounded-corner {
@@ -149,5 +175,17 @@
   .new-column {
     break-after: column;
     break-inside: avoid;
+  }
+}
+
+@keyframes powerpoint {
+  from {
+    opacity: 0.15;
+    scale: 0.85;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
   }
 }
