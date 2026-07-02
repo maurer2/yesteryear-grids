@@ -37,8 +37,8 @@
 
 {#snippet gridContent()}
   <Row class="row">
-    {#each { length: numberOfColumns }}
-      <Column />
+    {#each { length: numberOfColumns, index: 0 } as _, index}
+      <Column style="--index-of-column: {index};" />
     {/each}
   </Row>
 {/snippet}
@@ -69,11 +69,18 @@
 
         :global(.column) {
           inline-size: var(--size-of-column);
+          /* FF fallback */
           margin-inline-start: calc(
-            (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
+            (var(--size-of-column) + var(--gutter-size)) * var(--index-of-column)
           );
           margin-inline-end: -100%; /* move every column to the left edge of container */
           float: inline-start;
+
+          @supports (margin-inline-start: sibling-index()) {
+            margin-inline-start: calc(
+              (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
+            );
+          }
         }
       }
     }
