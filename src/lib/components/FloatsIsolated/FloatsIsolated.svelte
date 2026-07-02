@@ -76,7 +76,7 @@
           margin-inline-end: -100%; /* move every column to the left edge of container */
           float: inline-start;
 
-          @supports (margin-inline-start: sibling-index()) {
+          @supports (z-index: sibling-index()) {
             margin-inline-start: calc(
               (var(--size-of-column) + var(--gutter-size)) * (sibling-index() - 1)
             );
