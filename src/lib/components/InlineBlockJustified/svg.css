@@ -13,7 +13,7 @@
   inline-size: var(--size-of-column);
   margin-block-end: -7px; /* compensate for spacer element */
   line-height: normal;
-  text-align: start;
+  text-align: center;
 }
 
 /* neccessary as "&::after" on row container doesn't work; it needs to be a real element */

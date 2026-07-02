@@ -64,7 +64,7 @@
           inline-size: var(--size-of-column);
           margin-block-end: -7px;
           line-height: normal;
-          text-align: start;
+          text-align: center;
         }
 
         /* neccessary as "&::after" on row doesn't work; it needs to be a real element */

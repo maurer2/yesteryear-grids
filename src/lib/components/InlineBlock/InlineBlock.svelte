@@ -59,7 +59,7 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Inline block grids')}
+  {@render title('Inline block grid')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
   {#if cssListing}
