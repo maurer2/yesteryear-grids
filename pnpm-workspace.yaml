@@ -1,0 +1,9 @@
+minimumReleaseAge: 10080
+supportedArchitectures:
+  cpu:
+    - arm64
+    - x64
+  os:
+    - darwin
+    - linux
+    - win32

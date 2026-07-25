@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.17.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,36 +13,23 @@
     "prettier": "prettier --write \"**/*.*\""
   },
   "devDependencies": {
-    "@catppuccin/palette": "^1.8.0",
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.58.0",
+    "@sveltejs/kit": "^2.70.0",
     "@tsconfig/svelte": "^5.0.8",
-    "@types/node": "^24.12.2",
+    "@types/node": "^24.13.3",
+    "csstype": "^3.2.3",
     "fast-glob": "^3.3.3",
-    "prettier": "^3.8.3",
-    "prettier-plugin-svelte": "^3.5.1",
-    "shiki": "^4.0.2",
-    "svelte": "^5.55.1",
-    "svelte-check": "^4.4.6",
-    "typescript": "~6.0.2",
-    "vite": "^8.0.10"
+    "prettier": "^3.9.5",
+    "prettier-plugin-svelte": "^4.1.1",
+    "shiki": "^4.3.1",
+    "svelte-check": "^4.7.3",
+    "type-fest": "^5.8.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.1.5"
   },
   "dependencies": {
-    "csstype": "^3.2.3",
+    "@catppuccin/palette": "^1.8.0",
     "modern-normalize": "^3.0.1",
-    "type-fest": "^5.6.0"
-  },
-  "pnpm": {
-    "supportedArchitectures": {
-      "cpu": [
-        "arm64",
-        "x64"
-      ],
-      "os": [
-        "darwin",
-        "linux",
-        "win32"
-      ]
-    }
+    "svelte": "^5.56.6"
   }
 }
