@@ -12,8 +12,8 @@
     --text: oklch(0.33 0.03 260);
     --text-muted: oklch(0.48 0.03 260);
 
-    --accent-primary: oklch(0.55 0.23 260);
-    --accent-secondary: oklch(0.6 0.25 300);
+    --accent-primary: oklch(0.52 0.23 260);
+    --accent-secondary: oklch(0.53 0.197 20.3);
 
     --on-accent: oklch(0.98 0.01 260);
 
@@ -44,6 +44,22 @@
   h6 {
     margin-block-start: 0;
     letter-spacing: -0.02em;
+  }
+
+  a {
+    color: var(--accent-primary);
+    font-size: 1rem;
+    text-decoration: none;
+
+    &:where(:hover, :focus-visible) {
+      text-decoration: underline;
+      color: var(--accent-secondary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-secondary);
+      outline-offset: 4px;
+    }
   }
 
   p {

@@ -24,7 +24,9 @@ const codeToHtmlOptions: Parameters<typeof codeToHtml>[1] = {
   lang: 'css',
   theme: 'catppuccin-latte',
   colorReplacements: {
-    '#eff1f5': 'var(--bg-soft)', // bg-color
+    '#eff1f5': 'var(--bg-soft)', // theme bg -> card bg
+    '#8839ef': 'var(--accent-secondary)', // purple -> red
+    '#fe640b': 'var(--accent-primary)', // orange -> blue
   },
 };
 

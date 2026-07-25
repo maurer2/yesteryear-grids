@@ -45,21 +45,5 @@
       list-style-type: ''; /* https://gomakethings.com/articles/semantic-inline-lists/ */
       column-rule: 2px solid var(--border);
     }
-
-    .nav-item {
-      color: var(--accent-primary);
-      font-size: 1rem;
-      text-decoration: none;
-
-      &:where(:hover, :focus-visible) {
-        text-decoration: underline;
-        color: var(--accent-secondary);
-      }
-
-      &:focus-visible {
-        outline: 2px solid var(--accent-secondary);
-        outline-offset: 4px;
-      }
-    }
   }
 </style>
