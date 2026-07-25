@@ -94,7 +94,7 @@
   "
 >
   {#each sections as section (section.id)}
-    {@const SectionComponent = section.component}
+    {const SectionComponent = section.component}
     <div id={section.id} class="panel-full-height">
       <SectionComponent
         cssListing={cssFilesWithSyntaxHighlighting.get(section.cssKey)}
