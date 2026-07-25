@@ -1,3 +1,11 @@
+<script lang="ts">
+  type IntroPanelProps = {
+    sections: { id: string; label: string }[];
+  };
+
+  let { sections }: IntroPanelProps = $props();
+</script>
+
 <div class="card">
   <h1 class="section-headline">Yester&shy;year-grids</h1>
 
@@ -7,11 +15,15 @@
     </p>
   </div>
 
-  <!--
-    <ul>
-      <li></li>
+  <nav class="section-nav" aria-label="Various grid techniques">
+    <ul class="nav-items no-indent">
+      {#each sections as section (section.id)}
+        <li>
+          <a class="nav-item" href={`#${section.id}`}>{section.label}</a>
+        </li>
+      {/each}
     </ul>
-    -->
+  </nav>
 </div>
 
 <style>
@@ -23,6 +35,30 @@
 
       & > p {
         margin: 0;
+      }
+    }
+
+    .nav-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      list-style-type: ''; /* https://gomakethings.com/articles/semantic-inline-lists/ */
+      column-rule: 2px solid var(--border);
+    }
+
+    .nav-item {
+      color: var(--accent-primary);
+      font-size: 1rem;
+      text-decoration: none;
+
+      &:where(:hover, :focus-visible) {
+        text-decoration: underline;
+        color: var(--accent-secondary);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--accent-secondary);
+        outline-offset: 4px;
       }
     }
   }

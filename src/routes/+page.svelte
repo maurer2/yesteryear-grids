@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Component } from 'svelte';
   import { innerWidth } from 'svelte/reactivity/window';
   import type { PageData } from './$types';
 
@@ -15,8 +16,63 @@
   type PageProps = {
     data: PageData;
   };
+  // https://stackoverflow.com/questions/72349213/is-it-possible-to-extract-map-keys-as-type-in-typescript
+  type CSSKeys = Parameters<(typeof data)['cssFilesWithSyntaxHighlighting']['get']>[0];
+
+  type SectionComponent = Component<{ numberOfColumns: number; cssListing?: string }>;
+  type Section = {
+    id: string;
+    label: string;
+    component: SectionComponent;
+    cssKey: CSSKeys;
+  };
 
   const { data }: PageProps = $props();
+
+  const sections = [
+    {
+      id: 'padding-floats',
+      label: 'Padding floats',
+      component: FloatsPaddingBased,
+      cssKey: 'floatsPaddingBasedCSS',
+    },
+    {
+      id: 'margin-floats',
+      label: 'Margin floats',
+      component: FloatsMarginBased,
+      cssKey: 'floatsMarginBasedCSS',
+    },
+    {
+      id: 'isolated-floats',
+      label: 'Isolated floats',
+      component: FloatsIsolated,
+      cssKey: 'floatsIsolatedCSS',
+    },
+    {
+      id: 'inline-block',
+      label: 'Inline block',
+      component: InlineBlock,
+      cssKey: 'inlineBlockCSS',
+    },
+    {
+      id: 'justified-inline',
+      label: 'Justified inline',
+      component: InlineBlockJustified,
+      cssKey: 'inlineBlockJustifiedCSS',
+    },
+    {
+      id: 'justified-last-line',
+      label: 'Justified last-line',
+      component: InlineBlockJustifiedTextAlignLast,
+      cssKey: 'inlineBlockJustifiedTextAlignLastCSS',
+    },
+    {
+      id: 'border-spacing',
+      label: 'Border spacing',
+      component: BorderSpacingTable,
+      cssKey: 'borderSpacingTableCSS',
+    },
+  ] as const satisfies Section[];
 
   const numberOfColumns = $derived(
     innerWidth?.current !== undefined && innerWidth.current >= 600 ? 12 : 6,
@@ -27,7 +83,7 @@
 
 <header class="header">
   <div class="panel-full-height">
-    <IntroPanel />
+    <IntroPanel {sections} />
   </div>
 </header>
 <main
@@ -37,51 +93,28 @@
     --gutter-size: 1rem;
   "
 >
-  <div class="panel-full-height">
-    <FloatsPaddingBased
-      cssListing={cssFilesWithSyntaxHighlighting.get('floatsPaddingBasedCSS')}
-      {numberOfColumns}
-    />
-  </div>
-  <div class="panel-full-height">
-    <FloatsMarginBased
-      cssListing={cssFilesWithSyntaxHighlighting.get('floatsMarginBasedCSS')}
-      {numberOfColumns}
-    />
-  </div>
-  <div class="panel-full-height">
-    <FloatsIsolated
-      cssListing={cssFilesWithSyntaxHighlighting.get('floatsIsolatedCSS')}
-      {numberOfColumns}
-    />
-  </div>
-  <div class="panel-full-height">
-    <InlineBlock
-      cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockCSS')}
-      {numberOfColumns}
-    />
-  </div>
-  <div class="panel-full-height">
-    <InlineBlockJustified
-      cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockJustifiedCSS')}
-      {numberOfColumns}
-    />
-  </div>
-  <div class="panel-full-height">
-    <InlineBlockJustifiedTextAlignLast
-      cssListing={cssFilesWithSyntaxHighlighting.get('inlineBlockJustifiedTextAlignLastCSS')}
-      {numberOfColumns}
-    />
-  </div>
-  <div class="panel-full-height">
-    <BorderSpacingTable
-      cssListing={cssFilesWithSyntaxHighlighting.get('borderSpacingTableCSS')}
-      {numberOfColumns}
-    />
-  </div>
+  {#each sections as section (section.id)}
+    {@const SectionComponent = section.component}
+    <div id={section.id} class="panel-full-height">
+      <SectionComponent
+        cssListing={cssFilesWithSyntaxHighlighting.get(section.cssKey)}
+        {numberOfColumns}
+      />
+    </div>
+  {/each}
 </main>
 
 <style>
   @layer components {
+    .header {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 10;
+      background: var(--bg);
+    }
+
+    .panel-full-height {
+      scroll-margin-block-start: 200px;
+    }
   }
 </style>
