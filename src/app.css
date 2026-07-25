@@ -29,11 +29,19 @@
   html {
     background: var(--bg);
     color: var(--text);
-    overflow: clip;
+    overflow-x: clip;
     font-size: var(--viewport-base-unit);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    padding-block: 2rem;
   }
 
   h1,
@@ -44,6 +52,7 @@
   h6 {
     margin-block-start: 0;
     letter-spacing: -0.02em;
+    text-box-trim: trim-both;
   }
 
   a {
@@ -64,6 +73,7 @@
 
   p {
     margin-block-start: 0;
+    text-box-trim: trim-both;
   }
 
   pre {
@@ -81,17 +91,6 @@
 }
 
 @layer components {
-  .scroll-snap-container {
-    block-size: 100dvb;
-    overflow-y: auto;
-    overflow-x: clip;
-    scroll-snap-type: y mandatory;
-
-    @media (prefers-reduced-motion: no-preference) {
-      scroll-behavior: smooth;
-    }
-  }
-
   .section-headline {
     margin-block-end: 0;
     font-size: calc(var(--viewport-base-unit) * 2);
@@ -107,7 +106,6 @@
     flex-direction: column;
     inline-size: min(100% - 2rem, 120ch);
     margin-inline: auto;
-    margin-block: 1rem;
     padding: 2rem;
     justify-content: center;
     gap: 1rem;
@@ -156,17 +154,14 @@
     font-style: italic;
     background: var(--bg-soft);
   }
+
+  .panel {
+    display: flow-root;
+    scroll-margin-block-start: 200px;
+  }
 }
 
 @layer utilities {
-  .panel-full-height {
-    display: flow-root;
-    /* min-block-size: 100dvb; */
-    /* padding: 2rem; */
-    /* align-content: center; */
-    /* scroll-snap-align: start; */
-  }
-
   .rounded-corner {
     corner-shape: squircle;
     border-radius: 50px;
@@ -195,6 +190,10 @@
   .new-column {
     break-after: column;
     break-inside: avoid;
+  }
+
+  .grid {
+    margin-block: 1rem;
   }
 }
 

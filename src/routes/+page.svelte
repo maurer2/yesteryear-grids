@@ -82,7 +82,7 @@
 </script>
 
 <header class="header">
-  <div class="panel-full-height">
+  <div class="panel">
     <IntroPanel {sections} />
   </div>
 </header>
@@ -95,7 +95,7 @@
 >
   {#each sections as section (section.id)}
     {const SectionComponent = section.component}
-    <div id={section.id} class="panel-full-height">
+    <div id={section.id} class="panel">
       <SectionComponent
         cssListing={cssFilesWithSyntaxHighlighting.get(section.cssKey)}
         {numberOfColumns}
@@ -109,12 +109,15 @@
     .header {
       position: sticky;
       inset-block-start: 0;
+      padding-block-end: 2rem;
       z-index: 10;
       background: var(--bg);
     }
 
-    .panel-full-height {
-      scroll-margin-block-start: 200px;
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
   }
 </style>

@@ -15,14 +15,14 @@
     </p>
   </div>
 
-  <nav class="section-nav" aria-label="Various grid techniques">
-    <ul class="nav-items no-indent">
+  <nav aria-label="Table of contents">
+    <ol class="table-of-contents no-indent">
       {#each sections as section (section.id)}
         <li>
-          <a class="nav-item" href={`#${section.id}`}>{section.label}</a>
+          <a class="table-of-contents-entry" href={`#${section.id}`}>{section.label}</a>
         </li>
       {/each}
-    </ul>
+    </ol>
   </nav>
 </div>
 
@@ -38,12 +38,20 @@
       }
     }
 
-    .nav-items {
+    .table-of-contents {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem 2rem;
       list-style-type: ''; /* https://gomakethings.com/articles/semantic-inline-lists/ */
       column-rule: 2px solid var(--border);
+      scroll-target-group: auto;
+    }
+
+    .table-of-contents-entry {
+      &:not(:hover):target-current {
+        color: var(--accent-secondary);
+        text-decoration: underline dotted;
+      }
     }
   }
 </style>
