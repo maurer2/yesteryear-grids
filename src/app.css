@@ -21,8 +21,6 @@
     --warning: oklch(0.75 0.18 90);
     --danger: oklch(0.55 0.22 25);
 
-    --grid-line: oklch(0.88 0.015 260);
-
     --viewport-base-unit: clamp(1rem, 0.5dvb + 0.5dvi, 3rem);
   }
 
@@ -171,7 +169,7 @@
   .multi-column {
     columns: 300px 2;
     column-gap: 2rem;
-    column-rule: solid 1px var(--grid-line);
+    column-rule: solid 1px var(--border);
 
     text-align: justify;
     text-justify: inter-word;
