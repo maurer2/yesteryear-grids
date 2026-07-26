@@ -40,9 +40,7 @@
     }
   }
 
-  body {
-    padding-block: 2rem;
-  }
+  body {}
 
   h1,
   h2,
@@ -195,6 +193,27 @@
   .grid {
     margin-block: 1rem;
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns:
+      [full-bleed-start left-space-start] 1fr
+      [left-space-end content-start] min(100%, 120ch)
+      [content-end right-space-start] 1fr
+      [right-space-end full-bleed-end];
+  }
+
+  .grid-container-row-full-bleed {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full-bleed;
+  }
+
+  .grid-container-row {
+    grid-column: content;
+    padding-inline: 2rem;
+  }
+
 }
 
 @keyframes powerpoint {

@@ -6,7 +6,7 @@
   let { sections }: IntroPanelProps = $props();
 </script>
 
-<div class="card">
+<div class="intro-panel">
   <h1 class="section-headline">Yester&shy;year-grids</h1>
 
   <div class="description">
@@ -28,6 +28,13 @@
 
 <style>
   @layer components {
+    .intro-panel {
+      display: flex;
+      padding-block: 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
     .description {
       display: flex;
       flex-direction: column;

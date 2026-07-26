@@ -81,9 +81,11 @@
   //$inspect(cssFilesWithSyntaxHighlighting);
 </script>
 
-<header class="header">
-  <div class="panel">
-    <IntroPanel {sections} />
+<header class="masthead grid-container">
+  <div class="masthead-row grid-container-row-full-bleed">
+    <div class="grid-container-row">
+      <IntroPanel {sections} />
+    </div>
   </div>
 </header>
 <main
@@ -106,16 +108,20 @@
 
 <style>
   @layer components {
-    .header {
+    .masthead {
       position: sticky;
       inset-block-start: 0;
-      padding-block-end: 2rem;
       z-index: 10;
-      background: var(--bg);
+    }
+
+    .masthead-row {
+      background: var(--bg-soft);
+      border-block-end: 1px solid var(--border);
     }
 
     .main {
       display: flex;
+      margin-block: 2rem;
       flex-direction: column;
       gap: 2rem;
     }
