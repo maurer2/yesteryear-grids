@@ -3,6 +3,12 @@
 @import 'modern-normalize' layer(reset);
 /* @import "node_modules/@catppuccin/palette/css/catppuccin.css" layer(base); */
 
+@property --header-block-size {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
 @layer base {
   :root {
     --bg: oklch(0.97 0.01 260);
@@ -152,11 +158,6 @@
     font-size: 1rem;
     font-style: italic;
     background: var(--bg-soft);
-  }
-
-  .panel {
-    display: flow-root;
-    scroll-margin-block-start: 200px;
   }
 }
 

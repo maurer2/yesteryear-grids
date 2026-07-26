@@ -78,10 +78,13 @@
     innerWidth?.current !== undefined && innerWidth.current >= 600 ? 12 : 6,
   );
   const cssFilesWithSyntaxHighlighting = $derived(data.cssFilesWithSyntaxHighlighting);
-  //$inspect(cssFilesWithSyntaxHighlighting);
+  let headerBlockSize = $state(0);
+
+  // $inspect(headerBlockSize);
 </script>
 
-<header class="masthead grid-container-row-full-bleed">
+<!-- bind:clientHeight uses Resize Observer -->
+<header class="masthead grid-container-row-full-bleed" bind:clientHeight={headerBlockSize}>
   <div class="grid-container-row">
     <IntroPanel {sections} />
   </div>
@@ -91,12 +94,13 @@
   style="
     --number-of-columns: {numberOfColumns};
     --gutter-size: 1rem;
+    --header-block-size: {headerBlockSize}px;
   "
 >
   {#each sections as section (section.id)}
     {const SectionComponent = section.component}
 
-    <div id={section.id} class="grid-container-row">
+    <div id={section.id} class="grid-container-row scroll-section">
       <SectionComponent
         cssListing={cssFilesWithSyntaxHighlighting.get(section.cssKey)}
         {numberOfColumns}
@@ -118,6 +122,10 @@
     .main {
       margin-block: 2rem;
       row-gap: 2rem;
+    }
+
+    .scroll-section {
+      scroll-margin-block-start: calc(var(--header-block-size, 0px) + 2rem);
     }
   }
 </style>
