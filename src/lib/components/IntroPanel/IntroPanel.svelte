@@ -48,9 +48,9 @@
     .table-of-contents {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem 2rem;
+      gap: 0.5rem 1rem;
       list-style-type: ''; /* https://gomakethings.com/articles/semantic-inline-lists/ */
-      column-rule: 2px solid var(--border);
+      column-rule: 1px solid var(--border);
       scroll-target-group: auto;
     }
 

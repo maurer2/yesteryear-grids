@@ -102,8 +102,6 @@
   .card {
     display: flex;
     flex-direction: column;
-    inline-size: min(100% - 2rem, 120ch);
-    margin-inline: auto;
     padding: 2rem;
     justify-content: center;
     gap: 1rem;
@@ -198,7 +196,7 @@
     display: grid;
     grid-template-columns:
       [full-bleed-start left-space-start] 1fr
-      [left-space-end content-start] min(100%, 120ch)
+      [left-space-end content-start] min(100% - 2rem, 120ch)
       [content-end right-space-start] 1fr
       [right-space-end full-bleed-end];
   }
@@ -211,9 +209,7 @@
 
   .grid-container-row {
     grid-column: content;
-    padding-inline: 2rem;
   }
-
 }
 
 @keyframes powerpoint {

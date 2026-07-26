@@ -81,15 +81,13 @@
   //$inspect(cssFilesWithSyntaxHighlighting);
 </script>
 
-<header class="masthead grid-container">
-  <div class="masthead-row grid-container-row-full-bleed">
-    <div class="grid-container-row">
-      <IntroPanel {sections} />
-    </div>
+<header class="masthead grid-container-row-full-bleed">
+  <div class="grid-container-row">
+    <IntroPanel {sections} />
   </div>
 </header>
 <main
-  class="main"
+  class="main grid-container-row-full-bleed"
   style="
     --number-of-columns: {numberOfColumns};
     --gutter-size: 1rem;
@@ -97,7 +95,8 @@
 >
   {#each sections as section (section.id)}
     {const SectionComponent = section.component}
-    <div id={section.id} class="panel">
+
+    <div id={section.id} class="grid-container-row">
       <SectionComponent
         cssListing={cssFilesWithSyntaxHighlighting.get(section.cssKey)}
         {numberOfColumns}
@@ -111,19 +110,14 @@
     .masthead {
       position: sticky;
       inset-block-start: 0;
-      z-index: 10;
-    }
-
-    .masthead-row {
-      background: var(--bg-soft);
       border-block-end: 1px solid var(--border);
+      z-index: 10;
+      background: var(--bg-soft);
     }
 
     .main {
-      display: flex;
       margin-block: 2rem;
-      flex-direction: column;
-      gap: 2rem;
+      row-gap: 2rem;
     }
   }
 </style>
