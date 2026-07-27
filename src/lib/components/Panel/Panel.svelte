@@ -24,34 +24,46 @@
     {title}
   </h2>
 
-  <div class="description multi-column">
-    {#if description}
-      {@render description()}
-    {:else}
-      {#each dummyText as paragraph}
-        <p>{paragraph}</p>
-      {/each}
-    {/if}
+  <section class="section">
+    <h3 class="section-headline">Description</h3>
 
-    {#if links.length}
-      <ul class="new-column">
-        {#each links as link (link.href)}
-          <li>
-            <a href={link.href}>{link.label}</a>
-          </li>
+    <div class="description multi-column">
+      {#if description}
+        {@render description()}
+      {:else}
+        {#each dummyText as paragraph}
+          <p>{paragraph}</p>
         {/each}
-      </ul>
-    {/if}
-  </div>
+      {/if}
 
-  <div class="grid">
-    {@render grid()}
-  </div>
+      {#if links.length}
+        <ul class="new-column">
+          {#each links as link (link.href)}
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          {/each}
+        </ul>
+      {/if}
+    </div>
+  </section>
+
+  <section class="section">
+    <h3 class="section-headline">Grid</h3>
+
+    <div class="grid">
+      {@render grid()}
+    </div>
+  </section>
 
   {#if markup}
-    <div class="markup">
-      {@html markup}
-    </div>
+    <section class="section">
+      <h3 class="section-headline">CSS</h3>
+
+      <div class="markup">
+        {@html markup}
+      </div>
+    </section>
   {/if}
 </div>
 
@@ -67,6 +79,17 @@
     .headline {
       margin-block-end: 0;
       font-size: calc(var(--viewport-base-unit) * 1.5);
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .section-headline {
+      margin-block-end: 0;
+      font-size: calc(var(--viewport-base-unit) * 1.1);
     }
   }
 </style>
