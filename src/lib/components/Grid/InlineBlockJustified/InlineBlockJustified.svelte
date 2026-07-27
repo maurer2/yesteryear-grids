@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Row from '../Row/Row.svelte';
-  import Column from '../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
+  import Row from '../../Row/Row.svelte';
+  import Column from '../../Column/Column.svelte';
+  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
 
   type InlineBlockWithTextAlignJustifyProps = {
     numberOfColumns: number;
@@ -36,8 +36,8 @@
   </Row>
 {/snippet}
 
-<section
-  class="card"
+<div
+  class="grid"
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
@@ -47,12 +47,11 @@
   {#if cssListing}
     {@render markup(cssListing)}
   {/if}
-</section>
+</div>
 
 <style>
   @layer components {
-    .card {
-      /* child component styles */
+    .grid {
       & {
         :global(.row) {
           text-align: justify;

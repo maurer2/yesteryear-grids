@@ -1,9 +1,9 @@
 <script lang="ts">
   type IntroPanelProps = {
-    sections: { id: string; label: string }[];
+    grids: { id: string; label: string }[];
   };
 
-  let { sections }: IntroPanelProps = $props();
+  let { grids }: IntroPanelProps = $props();
 </script>
 
 <div class="intro-panel">
@@ -17,9 +17,9 @@
 
   <nav aria-label="Table of contents">
     <ol class="table-of-contents no-indent">
-      {#each sections as section (section.id)}
+      {#each grids as grid (grid.id)}
         <li>
-          <a class="table-of-contents-entry" href={`#${section.id}`}>{section.label}</a>
+          <a class="table-of-contents-entry" href={`#${grid.id}`}>{grid.label}</a>
         </li>
       {/each}
     </ol>
@@ -55,7 +55,7 @@
     }
 
     .table-of-contents-entry {
-      &:not(:hover):target-current {
+      &:target-current {
         color: var(--accent-secondary);
         text-decoration: underline dotted;
       }

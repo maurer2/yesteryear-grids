@@ -1,7 +1,8 @@
 <script lang="ts">
-  import Row from '../Row/Row.svelte';
-  import Column from '../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
+  import Card from '../../Card/Card.svelte';
+  import Row from '../../Row/Row.svelte';
+  import Column from '../../Column/Column.svelte';
+  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
@@ -36,19 +37,18 @@
   </div>
 {/snippet}
 
-<section class="card">
+<div class="grid">
   {@render title('Border spacing grid')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
   {#if cssListing}
     {@render markup(cssListing)}
   {/if}
-</section>
+</div>
 
 <style>
   @layer components {
-    .card {
-      /* child component styles */
+    .grid {
       & {
         :global(.wrapper) {
           margin-inline: calc(var(--gutter-size) * -1);

@@ -25,7 +25,7 @@
 {/snippet}
 
 {#snippet grid(grid: Snippet)}
-  <div class="grid">
+  <div class="grid-image">
     {@render grid()}
   </div>
 {/snippet}

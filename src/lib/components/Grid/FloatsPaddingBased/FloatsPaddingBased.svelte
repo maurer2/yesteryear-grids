@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Row from '../Row/Row.svelte';
-  import Column from '../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../snippets/Panel/Panel.svelte';
+  import Row from '../../Row/Row.svelte';
+  import Column from '../../Column/Column.svelte';
+  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
@@ -44,19 +44,18 @@
   </Row>
 {/snippet}
 
-<section class="card" style:--size-of-column={'calc(100% / var(--number-of-columns))'}>
+<div class="grid" style:--size-of-column={'calc(100% / var(--number-of-columns))'}>
   {@render title('Padding-based float grid with gutters via padding')}
   {@render description(descriptionContent)}
   {@render grid(gridContent)}
   {#if cssListing}
     {@render markup(cssListing)}
   {/if}
-</section>
+</div>
 
 <style>
   @layer components {
-    .card {
-      /* child component styles */
+    .grid {
       & {
         :global .row {
           display: flow-root;

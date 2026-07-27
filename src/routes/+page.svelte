@@ -3,15 +3,16 @@
   import { innerWidth } from 'svelte/reactivity/window';
   import type { PageData } from './$types';
 
+  import Card from '../lib/components/Card/Card.svelte';
   import IntroPanel from '../lib/components/IntroPanel/IntroPanel.svelte';
 
-  import FloatsPaddingBased from '../lib/components/FloatsPaddingBased/FloatsPaddingBased.svelte';
-  import FloatsMarginBased from '../lib/components/FloatsMarginBased/FloatsMarginBased.svelte';
-  import FloatsIsolated from '../lib/components/FloatsIsolated/FloatsIsolated.svelte';
-  import InlineBlock from '../lib/components/InlineBlock/InlineBlock.svelte';
-  import InlineBlockJustified from '../lib/components/InlineBlockJustified/InlineBlockJustified.svelte';
-  import InlineBlockJustifiedTextAlignLast from '../lib/components/InlineBlockJustifiedTextAlignLast/InlineBlockJustifiedTextAlignLast.svelte';
-  import BorderSpacingTable from '../lib/components/BorderSpacingTable/BorderSpacingTable.svelte';
+  import FloatsPaddingBased from '../lib/components/Grid/FloatsPaddingBased/FloatsPaddingBased.svelte';
+  import FloatsMarginBased from '../lib/components/Grid/FloatsMarginBased/FloatsMarginBased.svelte';
+  import FloatsIsolated from '../lib/components/Grid/FloatsIsolated/FloatsIsolated.svelte';
+  import InlineBlock from '../lib/components/Grid/InlineBlock/InlineBlock.svelte';
+  import InlineBlockJustified from '../lib/components/Grid/InlineBlockJustified/InlineBlockJustified.svelte';
+  import InlineBlockJustifiedTextAlignLast from '../lib/components/Grid/InlineBlockJustifiedTextAlignLast/InlineBlockJustifiedTextAlignLast.svelte';
+  import BorderSpacingTable from '../lib/components/Grid/BorderSpacingTable/BorderSpacingTable.svelte';
 
   type PageProps = {
     data: PageData;
@@ -19,17 +20,16 @@
   // https://stackoverflow.com/questions/72349213/is-it-possible-to-extract-map-keys-as-type-in-typescript
   type CSSKeys = Parameters<(typeof data)['cssFilesWithSyntaxHighlighting']['get']>[0];
 
-  type SectionComponent = Component<{ numberOfColumns: number; cssListing?: string }>;
-  type Section = {
+  type Grid = {
     id: string;
     label: string;
-    component: SectionComponent;
+    component: Component<{ numberOfColumns: number; cssListing?: string }>;
     cssKey: CSSKeys;
   };
 
   const { data }: PageProps = $props();
 
-  const sections = [
+  const grids = [
     {
       id: 'padding-floats',
       label: 'Padding floats',
@@ -72,7 +72,7 @@
       component: BorderSpacingTable,
       cssKey: 'borderSpacingTableCSS',
     },
-  ] as const satisfies Section[];
+  ] as const satisfies Grid[];
 
   const numberOfColumns = $derived(
     innerWidth?.current !== undefined && innerWidth.current >= 600 ? 12 : 6,
@@ -86,7 +86,7 @@
 <!-- bind:clientHeight uses Resize Observer -->
 <header class="masthead grid-container-row-full-bleed" bind:clientHeight={headerBlockSize}>
   <div class="grid-container-row">
-    <IntroPanel {sections} />
+    <IntroPanel {grids} />
   </div>
 </header>
 <main
@@ -97,15 +97,15 @@
     --header-block-size: {headerBlockSize}px;
   "
 >
-  {#each sections as section (section.id)}
-    {const SectionComponent = section.component}
+  {#each grids as grid (grid.id)}
+    {const GridComponent = grid.component}
 
-    <div id={section.id} class="grid-container-row scroll-section">
-      <SectionComponent
-        cssListing={cssFilesWithSyntaxHighlighting.get(section.cssKey)}
+    <Card as="article" id={grid.id} class="grid-container-row scroll-section fade-in">
+      <GridComponent
+        cssListing={cssFilesWithSyntaxHighlighting.get(grid.cssKey)}
         {numberOfColumns}
       />
-    </div>
+    </Card>
   {/each}
 </main>
 
@@ -122,10 +122,6 @@
     .main {
       margin-block: 2rem;
       row-gap: 2rem;
-    }
-
-    .scroll-section {
-      scroll-margin-block-start: calc(var(--header-block-size, 0px) + 2rem);
     }
   }
 </style>

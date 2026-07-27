@@ -4,7 +4,7 @@
 /* @import "node_modules/@catppuccin/palette/css/catppuccin.css" layer(base); */
 
 @property --header-block-size {
-  syntax: "<length>";
+  syntax: '<length>';
   initial-value: 0px;
   inherits: true;
 }
@@ -44,7 +44,8 @@
     }
   }
 
-  body {}
+  body {
+  }
 
   h1,
   h2,
@@ -61,7 +62,6 @@
     color: var(--accent-primary);
     font-size: 1rem;
     text-decoration: none;
-
 
     @media (hover: hover) {
       &:hover {
@@ -106,43 +106,6 @@
   .section-subheadline {
     margin-block-end: 0;
     font-size: calc(var(--viewport-base-unit) * 1.5);
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    justify-content: center;
-    gap: 1rem;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    container-type: inline-size;
-
-    @media screen and (prefers-reduced-motion: no-preference) {
-      /* https://developer.chrome.com/blog/scroll-triggered-animations */
-
-      trigger-scope: --t;
-
-      timeline-trigger-name: --t;
-      timeline-trigger-source: view();
-
-      /* start timeline when x of element is visible */
-      /* timeline-trigger-range-start: contain 10%; */
-      timeline-trigger-activation-range-start: entry-crossing;
-
-      /* end timeline when x of element is visible */
-      /* timeline-trigger-range-end: contain 90%; */
-      timeline-trigger-activation-range-end: exit-crossing;
-
-      /* start timeline reverse when x of element becomes invisible */
-      timeline-trigger-exit-range-start: exit 0%;
-
-      /* end timeline reverse when x of element becomes invisible */
-      timeline-trigger-exit-range-end: exit 100%;
-
-      animation: powerpoint 0.5s ease-in-out both;
-      animation-trigger: --t play-forwards play-backwards;
-    }
   }
 
   .button {
@@ -192,7 +155,7 @@
     break-inside: avoid;
   }
 
-  .grid {
+  .grid-image {
     margin-block: 1rem;
   }
 
@@ -213,6 +176,38 @@
 
   .grid-container-row {
     grid-column: content;
+  }
+
+  .scroll-section {
+    scroll-margin-block-start: calc(var(--header-block-size, 0px) + 2rem);
+  }
+
+  .fade-in {
+    @media screen and (prefers-reduced-motion: no-preference) {
+      /* https://developer.chrome.com/blog/scroll-triggered-animations */
+
+      trigger-scope: --t;
+
+      timeline-trigger-name: --t;
+      timeline-trigger-source: view();
+
+      /* start timeline when x of element is visible */
+      /* timeline-trigger-range-start: contain 10%; */
+      timeline-trigger-activation-range-start: entry-crossing;
+
+      /* end timeline when x of element is visible */
+      /* timeline-trigger-range-end: contain 90%; */
+      timeline-trigger-activation-range-end: exit-crossing;
+
+      /* start timeline reverse when x of element becomes invisible */
+      timeline-trigger-exit-range-start: exit 0%;
+
+      /* end timeline reverse when x of element becomes invisible */
+      timeline-trigger-exit-range-end: exit 100%;
+
+      animation: powerpoint 0.5s ease-in-out both;
+      animation-trigger: --t play-forwards play-backwards;
+    }
   }
 }
 
