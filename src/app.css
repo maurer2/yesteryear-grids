@@ -195,6 +195,11 @@
       animation-trigger: --t play-forwards play-backwards;
     }
   }
+
+  .thin-scrollbars {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text) var(--bg-soft);
+  }
 }
 
 @keyframes powerpoint {

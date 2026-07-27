@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
-  import { dummyText } from '../../../assets/lorem-ipsum';
+  // import { dummyText } from '../../../assets/lorem-ipsum';
 
   export type PanelLink = {
     href: string;
@@ -30,10 +30,10 @@
     <div class="description multi-column">
       {#if description}
         {@render description()}
-      {:else}
+        <!-- {:else}
         {#each dummyText as paragraph}
           <p>{paragraph}</p>
-        {/each}
+        {/each} -->
       {/if}
 
       {#if links.length}
@@ -60,7 +60,7 @@
     <section class="section">
       <h3 class="section-headline">CSS</h3>
 
-      <div class="markup">
+      <div class="markup thin-scrollbars">
         {@html markup}
       </div>
     </section>
@@ -90,6 +90,60 @@
     .section-headline {
       margin-block-end: 0;
       font-size: calc(var(--viewport-base-unit) * 1.1);
+    }
+
+    .markup {
+      display: grid;
+      grid-template-areas: 'stack'; /* can't use absolute postion inside scroll container */
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      container-type: scroll-state;
+
+      :global(pre) {
+        padding-block-end: 1rem;
+        grid-area: stack;
+      }
+
+      /* overflow indicators */
+      &::before,
+      &::after {
+        content: '';
+        position: sticky;
+        inline-size: 2rem;
+        inset: 0;
+        grid-area: stack;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+
+        @media (prefers-reduced-motion: reduce) {
+          transition-duration: 0s;
+        }
+      }
+
+      &::before {
+        justify-self: start;
+        background: linear-gradient(to right, var(--border), transparent);
+      }
+
+      &::after {
+        justify-self: end;
+        background: linear-gradient(to left, var(--border), transparent);
+      }
+
+      /* svelte doesn't support named scroll-state containers */
+      @container scroll-state(scrollable: left) {
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      /* svelte doesn't support named scroll-state containers */
+      @container scroll-state(scrollable: right) {
+        &::after {
+          opacity: 1;
+        }
+      }
     }
   }
 </style>
