@@ -1,13 +1,21 @@
 <script lang="ts">
   import Row from '../../Row/Row.svelte';
   import Column from '../../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
+  import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type FloatsMarginBasedProps = {
     numberOfColumns: number;
     cssListing?: string;
   };
   let { numberOfColumns, cssListing }: FloatsMarginBasedProps = $props();
+
+  // 960 grid uses margins in two directions
+  const links = [
+    { href: 'https://getbootstrap.com/1.0.0/#grid-system', label: 'Bootstrap 1' },
+    { href: 'https://getbootstrap.com/2.3.2/scaffolding.html#gridSystem', label: 'Bootstrap 2' },
+    { href: 'https://github.com/joshuaclayton/blueprint-css/', label: 'Blueprint CSS' },
+    { href: 'https://github.com/dhg/Skeleton', label: 'Skeleton' },
+  ] satisfies PanelLink[];
 </script>
 
 {#snippet descriptionContent()}
@@ -21,21 +29,6 @@
     creates consistent spacing between columns but also keeps the first column flush with the
     container edge.
   </p>
-  <ul class="new-column">
-    <!-- 960 grid uses margins in two directions -->
-    <li>
-      <a href="https://getbootstrap.com/1.0.0/#grid-system">Bootstrap 1</a>
-    </li>
-    <li>
-      <a href="https://getbootstrap.com/2.3.2/scaffolding.html#gridSystem">Bootstrap 2</a>
-    </li>
-    <li>
-      <a href="https://github.com/joshuaclayton/blueprint-css/">Blueprint CSS</a>
-    </li>
-    <li>
-      <a href="https://github.com/dhg/Skeleton">Skeleton</a>
-    </li>
-  </ul>
 {/snippet}
 
 {#snippet gridContent()}
@@ -51,19 +44,18 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Margin-based float grid with gutters (single direction margins)')}
-  {@render description(descriptionContent)}
-  {@render grid(gridContent)}
-  {#if cssListing}
-    {@render markup(cssListing)}
-  {/if}
+  <Panel
+    title="Margin-based float grid with gutters (single direction margins)"
+    description={descriptionContent}
+    grid={gridContent}
+    markup={cssListing}
+    {links}
+  />
 </div>
 
 <style>
   @layer components {
     .grid {
-      /* child component styles */
-
       & {
         :global(.row) {
           display: flow-root;

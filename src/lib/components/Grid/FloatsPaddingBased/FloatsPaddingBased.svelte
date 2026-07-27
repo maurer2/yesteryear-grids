@@ -1,13 +1,18 @@
 <script lang="ts">
   import Row from '../../Row/Row.svelte';
   import Column from '../../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
+  import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type FloatsPaddingBasedProps = {
     numberOfColumns: number;
     cssListing?: string;
   };
   let { numberOfColumns, cssListing }: FloatsPaddingBasedProps = $props();
+
+  const links = [
+    { href: 'https://getbootstrap.com/docs/3.3/css/#grid', label: 'Bootstrap 3' },
+    { href: 'https://get.foundation/sites/docs/grid.html', label: 'Zurb Foundation' },
+  ] satisfies PanelLink[];
 </script>
 
 {#snippet descriptionContent()}
@@ -26,14 +31,6 @@
     Each column has padding equal to half the gutter width to create the gutters. The parent row
     compensates for this by using negative inline-margins, that are equal to half the gutter width.
   </p>
-  <ul class="new-column">
-    <li>
-      <a href="https://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a>
-    </li>
-    <li>
-      <a href="https://get.foundation/sites/docs/grid.html">Zurb Foundation</a>
-    </li>
-  </ul>
 {/snippet}
 
 {#snippet gridContent()}
@@ -45,12 +42,13 @@
 {/snippet}
 
 <div class="grid" style:--size-of-column={'calc(100% / var(--number-of-columns))'}>
-  {@render title('Padding-based float grid with gutters via padding')}
-  {@render description(descriptionContent)}
-  {@render grid(gridContent)}
-  {#if cssListing}
-    {@render markup(cssListing)}
-  {/if}
+  <Panel
+    title="Padding-based float grid with gutters via padding"
+    description={descriptionContent}
+    grid={gridContent}
+    markup={cssListing}
+    {links}
+  />
 </div>
 
 <style>

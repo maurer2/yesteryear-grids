@@ -1,7 +1,7 @@
 <script lang="ts">
   import Row from '../../Row/Row.svelte';
   import Column from '../../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
+  import Panel from '../../Panel/Panel.svelte';
 
   type InlineBlockWithTextAlignJustifyProps = {
     numberOfColumns: number;
@@ -41,12 +41,12 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Justified inline block grid')}
-  {@render description(descriptionContent)}
-  {@render grid(gridContent)}
-  {#if cssListing}
-    {@render markup(cssListing)}
-  {/if}
+  <Panel
+    title="Justified inline-block grid"
+    description={descriptionContent}
+    grid={gridContent}
+    markup={cssListing}
+  />
 </div>
 
 <style>

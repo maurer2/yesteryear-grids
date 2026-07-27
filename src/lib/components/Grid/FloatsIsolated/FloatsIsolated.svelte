@@ -1,13 +1,21 @@
 <script lang="ts">
   import Row from '../../Row/Row.svelte';
   import Column from '../../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
+  import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type FloatsContainerRelativeProps = {
     numberOfColumns: number;
     cssListing?: string;
   };
   let { numberOfColumns, cssListing }: FloatsContainerRelativeProps = $props();
+
+  const links = [
+    { href: 'https://susy.readthedocs.io/toolkit/#isolate', label: 'Susy (isolate mixin)' },
+    {
+      href: 'https://github.com/JohnAlbin/zen-grids/blob/master/sass/zen-grids/_grids.scss',
+      label: 'Zen Grids (zen-grid-item mixin)',
+    },
+  ] satisfies PanelLink[];
 </script>
 
 {#snippet descriptionContent()}
@@ -23,16 +31,6 @@
     overrides the default float behaviour where each float follows the previous one. The actual
     positon of a column is then set via <em>margin-inline-start</em>.
   </p>
-  <ul class="new-column">
-    <li>
-      <a href="https://susy.readthedocs.io/toolkit/#isolate">Susy — <em>isolate mixin</em></a>
-    </li>
-    <li>
-      <a href="https://github.com/JohnAlbin/zen-grids/blob/master/sass/zen-grids/_grids.scss"
-        >Zen Grids — <em>zen-grid-item mixin</em></a
-      >
-    </li>
-  </ul>
 {/snippet}
 
 {#snippet gridContent()}
@@ -48,12 +46,13 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Isolated floats')}
-  {@render description(descriptionContent)}
-  {@render grid(gridContent)}
-  {#if cssListing}
-    {@render markup(cssListing)}
-  {/if}
+  <Panel
+    title="Isolated floats"
+    description={descriptionContent}
+    grid={gridContent}
+    markup={cssListing}
+    {links}
+  />
 </div>
 
 <style>

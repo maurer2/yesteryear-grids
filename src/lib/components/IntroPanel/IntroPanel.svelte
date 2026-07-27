@@ -7,7 +7,7 @@
 </script>
 
 <div class="intro-panel">
-  <h1 class="section-headline">Yester&shy;year-grids</h1>
+  <h1 class="headline">Yester&shy;year-grids</h1>
 
   <div class="description">
     <p>
@@ -33,6 +33,11 @@
       padding-block: 2rem;
       flex-direction: column;
       gap: 1rem;
+    }
+
+    .headline {
+      margin-block-end: 0;
+      font-size: calc(var(--viewport-base-unit) * 2);
     }
 
     .description {

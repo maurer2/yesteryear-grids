@@ -1,14 +1,17 @@
 <script lang="ts">
-  import Card from '../../Card/Card.svelte';
   import Row from '../../Row/Row.svelte';
   import Column from '../../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
+  import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type TableWithBorderSpacingProps = {
     numberOfColumns: number;
     cssListing?: string;
   };
   let { numberOfColumns, cssListing }: TableWithBorderSpacingProps = $props();
+
+  const links = [
+    { href: 'https://github.com/mdo/table-grid', label: 'Table grid' },
+  ] satisfies PanelLink[];
 </script>
 
 {#snippet descriptionContent()}
@@ -20,11 +23,6 @@
     element are ignored in some browsers, so an additional wrapper is needed to apply the negative inline
     margins.
   </p>
-  <ul class="new-column">
-    <li>
-      <a href="https://github.com/mdo/table-grid">Table grid</a>
-    </li>
-  </ul>
 {/snippet}
 
 {#snippet gridContent()}
@@ -38,12 +36,13 @@
 {/snippet}
 
 <div class="grid">
-  {@render title('Border spacing grid')}
-  {@render description(descriptionContent)}
-  {@render grid(gridContent)}
-  {#if cssListing}
-    {@render markup(cssListing)}
-  {/if}
+  <Panel
+    title="Border spacing grid"
+    description={descriptionContent}
+    grid={gridContent}
+    markup={cssListing}
+    {links}
+  />
 </div>
 
 <style>

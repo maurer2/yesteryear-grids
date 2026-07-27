@@ -1,13 +1,23 @@
 <script lang="ts">
   import Row from '../../Row/Row.svelte';
   import Column from '../../Column/Column.svelte';
-  import { title, description, grid, markup } from '../../../snippets/Panel/Panel.svelte';
+  import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type InlineBlockProps = {
     numberOfColumns: number;
     cssListing?: string;
   };
   let { numberOfColumns, cssListing }: InlineBlockProps = $props();
+
+  const links = [
+    {
+      href: 'https://github.com/esr360/Kayzen-GS',
+      label: 'KayzenGS (letter-spacing and display-table)',
+    },
+    { href: 'https://pure-css.github.io/grids/', label: 'Yahoo Pure (letter-spacing)' },
+    // { href: 'https://csswizardry.com/csswizardry-grids/', label: 'csswizardry-grids (uses comment trick, padding for gutters)' },
+    // { href: 'https://github.com/daneden/toast', label: 'Toast grid (uses comment trick, padding for gutters)' },
+  ] satisfies PanelLink[];
 </script>
 
 {#snippet descriptionContent()}
@@ -24,26 +34,6 @@
     Each column except the first has an inline-start margin equal to the gutter width. This creates
     consistent spacing between columns while keeping the first column flush with the container edge.
   </p>
-  <ul class="new-column">
-    <li>
-      <a href="https://github.com/esr360/Kayzen-GS"
-        >KayzenGS (<em>letter-spacing</em> and <em>display-table</em>)</a
-      >
-    </li>
-    <li>
-      <a href="https://pure-css.github.io/grids/">Yahoo Pure (<em>letter-spacing</em>)</a>
-    </li>
-    <!-- <li>
-    <a href="https://csswizardry.com/csswizardry-grids/"
-      >csswizardry-grids (uses comment trick, padding for gutters)</a
-    >
-  </li>
-  <li>
-    <a href="https://github.com/daneden/toast"
-      >Toast grid (uses comment trick, padding for gutters)</a
-    >
-  </li> -->
-  </ul>
 {/snippet}
 
 {#snippet gridContent()}
@@ -59,12 +49,13 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  {@render title('Inline block grid')}
-  {@render description(descriptionContent)}
-  {@render grid(gridContent)}
-  {#if cssListing}
-    {@render markup(cssListing)}
-  {/if}
+  <Panel
+    title="Inline block grid"
+    description={descriptionContent}
+    grid={gridContent}
+    markup={cssListing}
+    {links}
+  />
 </div>
 
 <style>
