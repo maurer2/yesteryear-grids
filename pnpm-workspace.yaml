@@ -1,4 +1,7 @@
 minimumReleaseAge: 10080
+overrides:
+  # adds support for :target-current: https://github.com/parcel-bundler/lightningcss/releases
+  lightningcss: ^1.33.0
 supportedArchitectures:
   cpu:
     - arm64
