@@ -20,14 +20,13 @@
 <style>
   @layer components {
     .card {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem;
-      justify-content: center;
-      gap: 1rem;
+      --card-padding: 2rem;
+      --card-border-width: 1px;
+      --card-content-start-vertically: calc(var(--card-padding) + var(--card-border-width));
+
+      padding: var(--card-padding);
       background: var(--bg-soft);
-      border: 1px solid var(--border);
-      container-type: inline-size;
+      border: var(--card-border-width) solid var(--border);
     }
   }
 </style>

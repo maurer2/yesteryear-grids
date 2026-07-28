@@ -112,7 +112,8 @@
   }
 }
 
-@layer components {}
+@layer components {
+}
 
 @layer utilities {
   .rounded-corner {
@@ -164,10 +165,6 @@
     grid-column: content;
   }
 
-  .scroll-section {
-    scroll-margin-block-start: calc(var(--header-block-size, 0px) + 2rem);
-  }
-
   .fade-in {
     @media screen and (prefers-reduced-motion: no-preference) {
       /* https://developer.chrome.com/blog/scroll-triggered-animations */
@@ -190,6 +187,9 @@
 
       /* end timeline reverse when x of element becomes invisible */
       timeline-trigger-exit-range-end: exit 100%;
+
+      /* centre top */
+      transform-origin: 50% 0;
 
       animation: powerpoint 0.5s ease-in-out both;
       animation-trigger: --t play-forwards play-backwards;

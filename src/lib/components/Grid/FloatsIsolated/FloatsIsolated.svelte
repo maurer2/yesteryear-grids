@@ -4,10 +4,11 @@
   import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type FloatsContainerRelativeProps = {
+    id: string;
     numberOfColumns: number;
     cssListing?: string;
   };
-  let { numberOfColumns, cssListing }: FloatsContainerRelativeProps = $props();
+  let { id, numberOfColumns, cssListing }: FloatsContainerRelativeProps = $props();
 
   const links = [
     { href: 'https://susy.readthedocs.io/toolkit/#isolate', label: 'Susy (isolate mixin)' },
@@ -42,11 +43,12 @@
 {/snippet}
 
 <div
-  class="grid"
+  class="panel-wrapper"
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
   <Panel
+    {id}
     title="Isolated floats"
     description={descriptionContent}
     grid={gridContent}
@@ -57,7 +59,7 @@
 
 <style>
   @layer components {
-    .grid {
+    .panel-wrapper {
       & {
         :global(.row) {
           display: flow-root;

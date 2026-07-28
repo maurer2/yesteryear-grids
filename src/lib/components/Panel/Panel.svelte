@@ -9,6 +9,7 @@
   };
 
   type PanelProps = {
+    id: string;
     title: string;
     grid: Snippet;
     description?: Snippet;
@@ -16,11 +17,11 @@
     links?: PanelLink[];
   };
 
-  let { title, grid, description, markup, links = [] }: PanelProps = $props();
+  let { id, title, grid, description, markup, links = [] }: PanelProps = $props();
 </script>
 
 <div class="panel">
-  <h2 class="headline">
+  <h2 class="headline" {id}>
     {title}
   </h2>
 
@@ -72,13 +73,16 @@
     .panel {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       gap: 1rem;
     }
 
     .headline {
       margin-block-end: 0;
       font-size: calc(var(--viewport-base-unit) * 1.5);
+      /* 2rem space below header/gap between panels */
+      scroll-margin-block-start: calc(
+        var(--header-block-size, 0px) + 2rem + var(--card-content-start-vertically, 0px)
+      );
     }
 
     .section {

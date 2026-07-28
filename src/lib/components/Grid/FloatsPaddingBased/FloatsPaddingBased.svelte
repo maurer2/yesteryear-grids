@@ -4,10 +4,11 @@
   import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type FloatsPaddingBasedProps = {
+    id: string;
     numberOfColumns: number;
     cssListing?: string;
   };
-  let { numberOfColumns, cssListing }: FloatsPaddingBasedProps = $props();
+  let { id, numberOfColumns, cssListing }: FloatsPaddingBasedProps = $props();
 
   const links = [
     { href: 'https://getbootstrap.com/docs/3.3/css/#grid', label: 'Bootstrap 3' },
@@ -41,8 +42,9 @@
   </Row>
 {/snippet}
 
-<div class="grid" style:--size-of-column={'calc(100% / var(--number-of-columns))'}>
+<div class="panel-wrapper" style:--size-of-column={'calc(100% / var(--number-of-columns))'}>
   <Panel
+    {id}
     title="Padding-based float grid with gutters via padding"
     description={descriptionContent}
     grid={gridContent}
@@ -53,7 +55,7 @@
 
 <style>
   @layer components {
-    .grid {
+    .panel-wrapper {
       & {
         :global .row {
           display: flow-root;

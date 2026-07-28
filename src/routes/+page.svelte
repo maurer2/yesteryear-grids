@@ -23,7 +23,7 @@
   type Grid = {
     id: string;
     label: string;
-    component: Component<{ numberOfColumns: number; cssListing?: string }>;
+    component: Component<{ id: string; numberOfColumns: number; cssListing?: string }>;
     cssKey: CSSKeys;
   };
 
@@ -78,13 +78,15 @@
     innerWidth?.current !== undefined && innerWidth.current >= 600 ? 12 : 6,
   );
   const cssFilesWithSyntaxHighlighting = $derived(data.cssFilesWithSyntaxHighlighting);
-  let headerBlockSize = $state(0);
+  let headerBorderBoxSize = $state<ResizeObserverSize[]>();
+  // includes padding and border
+  const headerBlockSize = $derived(headerBorderBoxSize?.[0]?.blockSize ?? 0);
 
   // $inspect(headerBlockSize);
 </script>
 
-<!-- bind:clientHeight uses Resize Observer -->
-<header class="masthead grid-container-row-full-bleed" bind:clientHeight={headerBlockSize}>
+<!-- bind:borderBoxSize uses Resize Observer -->
+<header class="masthead grid-container-row-full-bleed" bind:borderBoxSize={headerBorderBoxSize}>
   <div class="grid-container-row">
     <IntroPanel {grids} />
   </div>
@@ -100,8 +102,9 @@
   {#each grids as grid (grid.id)}
     {const GridComponent = grid.component}
 
-    <Card as="article" id={grid.id} class="grid-container-row scroll-section fade-in">
+    <Card as="article" class="grid-container-row fade-in">
       <GridComponent
+        id={grid.id}
         cssListing={cssFilesWithSyntaxHighlighting.get(grid.cssKey)}
         {numberOfColumns}
       />
