@@ -78,9 +78,23 @@
     innerWidth?.current !== undefined && innerWidth.current >= 600 ? 12 : 6,
   );
   const cssFilesWithSyntaxHighlighting = $derived(data.cssFilesWithSyntaxHighlighting);
+
   let headerBorderBoxSize = $state<ResizeObserverSize[]>();
   // includes padding and border
   const headerBlockSize = $derived(headerBorderBoxSize?.[0]?.blockSize ?? 0);
+  let hasSchrolledToFragment = false;
+
+  // scroll to fragment on load one time once headerBlockSize has been calculated
+  $effect(() => {
+    document.documentElement.style.setProperty('--header-block-size', `${headerBlockSize}px`);
+
+    if (!hasSchrolledToFragment && headerBlockSize > 0) {
+      hasSchrolledToFragment = true;
+      const hashWithoutHashTag = location.hash.slice(1);
+
+      document.getElementById(hashWithoutHashTag)?.scrollIntoView();
+    }
+  });
 
   // $inspect(headerBlockSize);
 </script>
@@ -96,7 +110,6 @@
   style="
     --number-of-columns: {numberOfColumns};
     --gutter-size: 1rem;
-    --header-block-size: {headerBlockSize}px;
   "
 >
   {#each grids as grid (grid.id)}

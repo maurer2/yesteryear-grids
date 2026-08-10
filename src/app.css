@@ -36,6 +36,7 @@
     overflow-x: clip;
     font-size: var(--viewport-base-unit);
     font-synthesis: none;
+    scroll-padding-block-start: var(--header-block-size);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
