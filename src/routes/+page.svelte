@@ -22,8 +22,10 @@
 
   type Grid = {
     id: string;
+    // nav label
     label: string;
-    component: Component<{ numberOfColumns: number; cssListing?: string }>;
+    headline: string;
+    component: Component<{ headline: string; numberOfColumns: number; cssListing?: string }>;
     cssKey: CSSKeys;
   };
 
@@ -33,42 +35,49 @@
     {
       id: 'padding-floats',
       label: 'Padding floats',
+      headline: 'Padding-based float grid with gutters via padding',
       component: FloatsPaddingBased,
       cssKey: 'floatsPaddingBasedCSS',
     },
     {
       id: 'margin-floats',
       label: 'Margin floats',
+      headline: 'Margin-based float grid with gutters (single direction margins)',
       component: FloatsMarginBased,
       cssKey: 'floatsMarginBasedCSS',
     },
     {
       id: 'isolated-floats',
       label: 'Isolated floats',
+      headline: 'Isolated floats',
       component: FloatsIsolated,
       cssKey: 'floatsIsolatedCSS',
     },
     {
       id: 'inline-block',
       label: 'Inline block',
+      headline: 'Inline block grid',
       component: InlineBlock,
       cssKey: 'inlineBlockCSS',
     },
     {
       id: 'justified-inline',
       label: 'Justified inline',
+      headline: 'Justified inline-block grid',
       component: InlineBlockJustified,
       cssKey: 'inlineBlockJustifiedCSS',
     },
     {
       id: 'justified-last-line',
       label: 'Justified last-line',
+      headline: 'Justified inline-block grid with text-align-last',
       component: InlineBlockJustifiedTextAlignLast,
       cssKey: 'inlineBlockJustifiedTextAlignLastCSS',
     },
     {
       id: 'border-spacing',
       label: 'Border spacing',
+      headline: 'Border spacing grid',
       component: BorderSpacingTable,
       cssKey: 'borderSpacingTableCSS',
     },
@@ -115,8 +124,9 @@
   {#each grids as grid (grid.id)}
     {const GridComponent = grid.component}
 
-    <Card as="article" id={grid.id} class="grid-container-row fade-in">
+    <Card as="article" id={grid.id} aria-label={grid.label} class="grid-container-row fade-in">
       <GridComponent
+        headline={grid.headline}
         cssListing={cssFilesWithSyntaxHighlighting.get(grid.cssKey)}
         {numberOfColumns}
       />

@@ -4,10 +4,11 @@
   import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type InlineBlockProps = {
+    headline: string;
     numberOfColumns: number;
     cssListing?: string;
   };
-  let { numberOfColumns, cssListing }: InlineBlockProps = $props();
+  let { headline, numberOfColumns, cssListing }: InlineBlockProps = $props();
 
   const links = [
     {
@@ -50,7 +51,7 @@
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
   <Panel
-    title="Inline block grid"
+    title={headline}
     description={descriptionContent}
     grid={gridContent}
     markup={cssListing}

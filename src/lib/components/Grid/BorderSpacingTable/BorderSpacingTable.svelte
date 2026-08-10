@@ -4,10 +4,11 @@
   import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type TableWithBorderSpacingProps = {
+    headline: string;
     numberOfColumns: number;
     cssListing?: string;
   };
-  let { numberOfColumns, cssListing }: TableWithBorderSpacingProps = $props();
+  let { headline, numberOfColumns, cssListing }: TableWithBorderSpacingProps = $props();
 
   const links = [
     { href: 'https://github.com/mdo/table-grid', label: 'Table grid' },
@@ -37,7 +38,7 @@
 
 <div class="panel-wrapper">
   <Panel
-    title="Border spacing grid"
+    title={headline}
     description={descriptionContent}
     grid={gridContent}
     markup={cssListing}

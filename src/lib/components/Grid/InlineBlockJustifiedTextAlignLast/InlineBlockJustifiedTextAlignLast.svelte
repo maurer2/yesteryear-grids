@@ -4,10 +4,11 @@
   import Panel from '../../Panel/Panel.svelte';
 
   type InlineBlockWithTextAlignJustifyProps = {
+    headline: string;
     numberOfColumns: number;
     cssListing?: string;
   };
-  let { numberOfColumns, cssListing }: InlineBlockWithTextAlignJustifyProps = $props();
+  let { headline, numberOfColumns, cssListing }: InlineBlockWithTextAlignJustifyProps = $props();
 </script>
 
 {#snippet descriptionContent()}
@@ -36,12 +37,7 @@
   style:--gutter-size-total={'calc((var(--number-of-columns) - 1) * var(--gutter-size))'}
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
-  <Panel
-    title="Justified inline-block grid with text-align-last"
-    description={descriptionContent}
-    grid={gridContent}
-    markup={cssListing}
-  />
+  <Panel title={headline} description={descriptionContent} grid={gridContent} markup={cssListing} />
 </div>
 
 <style>
