@@ -23,7 +23,7 @@
   type Grid = {
     id: string;
     label: string;
-    component: Component<{ id: string; numberOfColumns: number; cssListing?: string }>;
+    component: Component<{ numberOfColumns: number; cssListing?: string }>;
     cssKey: CSSKeys;
   };
 
@@ -115,9 +115,8 @@
   {#each grids as grid (grid.id)}
     {const GridComponent = grid.component}
 
-    <Card as="article" class="grid-container-row fade-in">
+    <Card as="article" id={grid.id} class="grid-container-row fade-in">
       <GridComponent
-        id={grid.id}
         cssListing={cssFilesWithSyntaxHighlighting.get(grid.cssKey)}
         {numberOfColumns}
       />

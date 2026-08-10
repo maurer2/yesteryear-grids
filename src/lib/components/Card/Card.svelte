@@ -22,11 +22,11 @@
     .card {
       --card-padding: 2rem;
       --card-border-width: 1px;
-      --card-content-start-vertically: calc(var(--card-padding) + var(--card-border-width));
 
       padding: var(--card-padding);
       background: var(--bg-soft);
       border: var(--card-border-width) solid var(--border);
+      scroll-margin-block-start: 2rem;
     }
   }
 </style>

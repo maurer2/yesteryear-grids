@@ -4,11 +4,10 @@
   import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
 
   type FloatsMarginBasedProps = {
-    id: string;
     numberOfColumns: number;
     cssListing?: string;
   };
-  let { id, numberOfColumns, cssListing }: FloatsMarginBasedProps = $props();
+  let { numberOfColumns, cssListing }: FloatsMarginBasedProps = $props();
 
   // 960 grid uses margins in two directions
   const links = [
@@ -46,7 +45,6 @@
   style:--size-of-column={'calc((100% - var(--gutter-size-total)) / var(--number-of-columns))'}
 >
   <Panel
-    {id}
     title="Margin-based float grid with gutters (single direction margins)"
     description={descriptionContent}
     grid={gridContent}

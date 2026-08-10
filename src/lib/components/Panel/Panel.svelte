@@ -9,7 +9,6 @@
   };
 
   type PanelProps = {
-    id: string;
     title: string;
     grid: Snippet;
     description?: Snippet;
@@ -17,11 +16,11 @@
     links?: PanelLink[];
   };
 
-  let { id, title, grid, description, markup, links = [] }: PanelProps = $props();
+  let { title, grid, description, markup, links = [] }: PanelProps = $props();
 </script>
 
 <div class="panel">
-  <h2 class="headline" {id}>
+  <h2 class="headline">
     {title}
   </h2>
 
@@ -79,8 +78,6 @@
     .headline {
       margin-block-end: 0;
       font-size: calc(var(--viewport-base-unit) * 1.5);
-      /* 2rem space below header/gap between panels */
-      scroll-margin-block-start: calc(2rem + var(--card-content-start-vertically, 0px));
     }
 
     .section {
