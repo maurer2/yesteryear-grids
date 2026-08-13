@@ -3,33 +3,40 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "typecheck": "tsc -b --noEmit",
     "generate:svg": "node ./src/lib/helpers/generate-styles-svg.ts '**/*/svg.css'",
     "prettier": "prettier --write \"**/*.*\""
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.70.0",
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
     "@tsconfig/svelte": "^5.0.8",
     "@types/node": "^24.13.3",
+    "@typescript/native": "npm:typescript@^7",
     "csstype": "^3.2.3",
     "fast-glob": "^3.3.3",
     "prettier": "^3.9.5",
     "prettier-plugin-svelte": "^4.1.1",
     "shiki": "^4.3.1",
-    "svelte-check": "^4.7.3",
+    "svelte-check": "^4.7.5",
     "type-fest": "^5.8.0",
-    "typescript": "~6.0.3",
+    "typescript": "npm:@typescript/typescript6@~6",
     "vite": "^8.1.5"
   },
   "dependencies": {
     "@catppuccin/palette": "^1.8.0",
     "modern-normalize": "^3.0.1",
     "svelte": "^5.56.6"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*",
+    "#grid/*": "./src/lib/components/Grid/*",
+    "#src/*": "./src/*"
   }
 }

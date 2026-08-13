@@ -1,13 +1,11 @@
 {
-  "extends": "./.svelte-kit/tsconfig.json",
+  "extends": "$app/tsconfig", // https://svelte.dev/blog/sveltekit-3-release-candidate#What's-changed-TypeScript-configuration-got-simpler
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true
-  }
+    "strict": true,
+    "erasableSyntaxOnly": true,
+  },
+  "include": [
+    "src"
+  ]
 }

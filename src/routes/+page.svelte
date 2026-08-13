@@ -3,16 +3,16 @@
   import { innerWidth } from 'svelte/reactivity/window';
   import type { PageData } from './$types';
 
-  import Card from '../lib/components/Card/Card.svelte';
-  import IntroPanel from '../lib/components/IntroPanel/IntroPanel.svelte';
+  import Card from '#lib/components/Card/Card.svelte';
+  import IntroPanel from '#lib/components/IntroPanel/IntroPanel.svelte';
 
-  import FloatsPaddingBased from '../lib/components/Grid/FloatsPaddingBased/FloatsPaddingBased.svelte';
-  import FloatsMarginBased from '../lib/components/Grid/FloatsMarginBased/FloatsMarginBased.svelte';
-  import FloatsIsolated from '../lib/components/Grid/FloatsIsolated/FloatsIsolated.svelte';
-  import InlineBlock from '../lib/components/Grid/InlineBlock/InlineBlock.svelte';
-  import InlineBlockJustified from '../lib/components/Grid/InlineBlockJustified/InlineBlockJustified.svelte';
-  import InlineBlockJustifiedTextAlignLast from '../lib/components/Grid/InlineBlockJustifiedTextAlignLast/InlineBlockJustifiedTextAlignLast.svelte';
-  import BorderSpacingTable from '../lib/components/Grid/BorderSpacingTable/BorderSpacingTable.svelte';
+  import FloatsPaddingBased from '#grid/FloatsPaddingBased/FloatsPaddingBased.svelte';
+  import FloatsMarginBased from '#grid/FloatsMarginBased/FloatsMarginBased.svelte';
+  import FloatsIsolated from '#grid/FloatsIsolated/FloatsIsolated.svelte';
+  import InlineBlock from '#grid/InlineBlock/InlineBlock.svelte';
+  import InlineBlockJustified from '#grid/InlineBlockJustified/InlineBlockJustified.svelte';
+  import InlineBlockJustifiedTextAlignLast from '#grid/InlineBlockJustifiedTextAlignLast/InlineBlockJustifiedTextAlignLast.svelte';
+  import BorderSpacingTable from '#grid/BorderSpacingTable/BorderSpacingTable.svelte';
 
   type PageProps = {
     data: PageData;

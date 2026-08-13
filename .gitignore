@@ -16,6 +16,9 @@ dist-ssr
 .svelte-kit
 /build
 
+# TypeScript
+*.tsbuildinfo
+
 # Agent
 /agent
 

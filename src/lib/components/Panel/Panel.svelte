@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
-  // import { dummyText } from '../../../assets/lorem-ipsum';
+  // import { dummyText } from '#src/assets/lorem-ipsum.js';
 
   export type PanelLink = {
     href: string;

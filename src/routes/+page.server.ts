@@ -1,13 +1,13 @@
 import { SvelteMap } from 'svelte/reactivity';
 import { codeToHtml } from 'shiki';
 
-import FloatsPaddingBasedCSS from '../lib/components/Grid/FloatsPaddingBased/svg.css?raw';
-import FloatsMarginBasedCSS from '../lib/components/Grid/FloatsMarginBased/svg.css?raw';
-import FloatsIsolatedCSS from '../lib/components/Grid/FloatsIsolated/svg.css?raw';
-import InlineBlockCSS from '../lib/components/Grid/InlineBlock/svg.css?raw';
-import InlineBlockJustifiedCSS from '../lib/components/Grid/InlineBlockJustified/svg.css?raw';
-import InlineBlockJustifiedTextAlignLastCSS from '../lib/components/Grid/InlineBlockJustifiedTextAlignLast/svg.css?raw';
-import BorderSpacingTableCSS from '../lib/components/Grid/BorderSpacingTable/svg.css?raw';
+import FloatsPaddingBasedCSS from '#grid/FloatsPaddingBased/svg.css?raw';
+import FloatsMarginBasedCSS from '#grid/FloatsMarginBased/svg.css?raw';
+import FloatsIsolatedCSS from '#grid/FloatsIsolated/svg.css?raw';
+import InlineBlockCSS from '#grid/InlineBlock/svg.css?raw';
+import InlineBlockJustifiedCSS from '#grid/InlineBlockJustified/svg.css?raw';
+import InlineBlockJustifiedTextAlignLastCSS from '#grid/InlineBlockJustifiedTextAlignLast/svg.css?raw';
+import BorderSpacingTableCSS from '#grid/BorderSpacingTable/svg.css?raw';
 
 const cssFiles = {
   floatsPaddingBasedCSS: FloatsPaddingBasedCSS,
@@ -32,6 +32,7 @@ const codeToHtmlOptions: Parameters<typeof codeToHtml>[1] = {
 
 // runs at built time -> prerendering
 export async function load() {
+  console.info('Compiling syntax highlight for CSS files');
   const cssFilesWithSyntaxHighlighting = new SvelteMap<CSSFilesKeys, string>();
 
   for await (const [fileKey, fileContent] of Object.entries(cssFiles) as [CSSFilesKeys, string][]) {

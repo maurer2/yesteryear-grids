@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Row from '../../Row/Row.svelte';
-  import Column from '../../Column/Column.svelte';
-  import Panel, { type PanelLink } from '../../Panel/Panel.svelte';
+  import Row from '#lib/components/Row/Row.svelte';
+  import Column from '#lib/components/Column/Column.svelte';
+  import Panel, { type PanelLink } from '#lib/components/Panel/Panel.svelte';
 
   type FloatsContainerRelativeProps = {
     headline: string;

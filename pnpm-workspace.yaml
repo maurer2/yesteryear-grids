@@ -1,4 +1,10 @@
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - '@sveltejs/kit@3.0.0-next.21'
+  - '@sveltejs/adapter-static@4.0.0-next.4'
+  - '@sveltejs/load-config@0.2.3'
+  - 'magic-string@1.1.1'
+  - 'svelte-check@4.7.5'
 overrides:
   # adds support for :target-current: https://github.com/parcel-bundler/lightningcss/releases
   lightningcss: ^1.33.0
