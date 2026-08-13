@@ -27,6 +27,7 @@
       background: var(--bg-soft);
       border: var(--card-border-width) solid var(--border);
       scroll-margin-block-start: 2rem;
+      container: card / inline-size;
     }
   }
 </style>

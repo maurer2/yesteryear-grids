@@ -22,7 +22,7 @@
       color: var(--text);
       block-size: 25dvi;
 
-      @container (inline-size >= 600px) {
+      @container card (inline-size >= 600px) {
         block-size: 10dvi;
       }
     }
