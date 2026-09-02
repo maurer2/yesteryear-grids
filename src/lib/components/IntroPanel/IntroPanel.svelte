@@ -37,7 +37,7 @@
 
     .headline {
       margin-block-end: 0;
-      font-size: calc(var(--viewport-base-unit) * 2);
+      font-size: var(--font-size-largest);
     }
 
     .description {

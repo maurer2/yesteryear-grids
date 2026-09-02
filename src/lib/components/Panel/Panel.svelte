@@ -77,7 +77,7 @@
 
     .headline {
       margin-block-end: 0;
-      font-size: calc(var(--viewport-base-unit) * 1.5);
+      font-size: var(--font-size-larger);
     }
 
     .section {
@@ -88,7 +88,7 @@
 
     .section-headline {
       margin-block-end: 0;
-      font-size: calc(var(--viewport-base-unit) * 1.1);
+      font-size: var(--font-size-large);
     }
 
     .markup {
