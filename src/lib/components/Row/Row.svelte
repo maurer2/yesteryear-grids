@@ -2,8 +2,7 @@
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
 
-  type RowProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
-    class?: string;
+  type RowProps = HTMLAttributes<HTMLDivElement> & {
     children: Snippet;
   };
 

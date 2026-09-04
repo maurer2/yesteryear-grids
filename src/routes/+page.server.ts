@@ -30,9 +30,9 @@ const codeToHtmlOptions: Parameters<typeof codeToHtml>[1] = {
   },
 };
 
-// runs at built time -> prerendering
+// runs at build time -> prerendering
 export async function load() {
-  console.info('Compiling syntax highlight for CSS files');
+  console.info('Compiling syntax highlighting for CSS files');
   const cssFilesWithSyntaxHighlighting = new SvelteMap<CSSFilesKeys, string>();
 
   for await (const [fileKey, fileContent] of Object.entries(cssFiles) as [CSSFilesKeys, string][]) {
