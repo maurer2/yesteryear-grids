@@ -21,6 +21,18 @@
   inherits: true;
 }
 
+@property --font-scale-max-increase-percentage {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: false;
+}
+
+@property --font-scale-max-increase-fraction {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+
 @layer base {
   :root {
     --bg: oklch(0.97 0.01 260);
@@ -40,9 +52,19 @@
     --danger: oklch(0.55 0.22 25);
 
     /* 0 to 1 */
-    --viewport-progress-fraction: clamp(0, progress(100vi, 320px, 1440px), 1);
-    /* 1 to 1.25 */
-    --font-scale-factor: calc(1 + var(--viewport-progress-fraction) * 0.25);
+    --viewport-progress-fraction: progress(100vi, 320px, 1440px);
+    --font-scale-max-increase-percentage: 25%;
+
+    /* fallback: removal of unit via tan(atan2())-hack */
+    --font-scale-max-increase-fraction: tan(atan2(var(--font-scale-max-increase-percentage), 100%));
+    /* https://caniuse.com/mdn-css_types_calc_typed_division_produces_unitless_number */
+    @supports (opacity: calc(1% / 100%)) {
+      --font-scale-max-increase-fraction: calc(var(--font-scale-max-increase-percentage) / 100%);
+    }
+
+    /* 1 to 1 + n percent, e.g. 1.25 for 25% */
+    /* prettier-ignore */
+    --font-scale-factor: calc(1 + var(--viewport-progress-fraction) * var(--font-scale-max-increase-fraction));
 
     --font-size-small: calc(0.875rem * var(--font-scale-factor));
     --font-size-normal: calc(1rem * var(--font-scale-factor));
