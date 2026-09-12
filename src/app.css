@@ -209,31 +209,16 @@
   .fade-in {
     @media screen and (prefers-reduced-motion: no-preference) {
       /* https://developer.chrome.com/blog/scroll-triggered-animations */
-
       trigger-scope: --t;
 
       timeline-trigger-name: --t;
       timeline-trigger-source: view();
 
-      /* start timeline when x of element is visible */
-      /* timeline-trigger-range-start: contain 10%; */
-      timeline-trigger-activation-range-start: entry-crossing;
+      /* start fade-in when card is visible by at least 10% of screen height */
+      timeline-trigger-activation-range-start: entry 10svb;
 
-      /* end timeline when x of element is visible */
-      /* timeline-trigger-range-end: contain 90%; */
-      timeline-trigger-activation-range-end: exit-crossing;
-
-      /* start timeline reverse when x of element becomes invisible */
-      timeline-trigger-exit-range-start: exit 0%;
-
-      /* end timeline reverse when x of element becomes invisible */
-      timeline-trigger-exit-range-end: exit 100%;
-
-      /* centre top */
-      transform-origin: 50% 0;
-
-      animation: powerpoint 0.5s ease-in-out both;
-      animation-trigger: --t play-forwards play-backwards;
+      animation: fade 0.5s ease-in-out both;
+      animation-trigger: --t play-forwards; /* only plays once, no fade out without "play-backwards" */
     }
   }
 
@@ -243,14 +228,12 @@
   }
 }
 
-@keyframes powerpoint {
+@keyframes fade {
   from {
-    opacity: 0.15;
-    scale: 0.85;
+    opacity: 0;
   }
 
   to {
     opacity: 1;
-    scale: 1;
   }
 }
