@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@11.21.0",
+  "packageManager": "pnpm@12.8.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,27 +14,28 @@
     "prettier": "prettier --write \"**/*.*\""
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "next",
-    "@sveltejs/kit": "next",
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "^3.0.0",
     "@tsconfig/svelte": "^5.0.8",
-    "@types/node": "^24.13.3",
-    "@typescript/native": "npm:typescript@^7",
+    "@types/node": "^24.19.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "csstype": "^3.2.3",
     "fast-glob": "^3.3.3",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.9",
     "prettier-plugin-svelte": "^4.1.1",
-    "shiki": "^4.3.1",
-    "svelte-check": "^4.7.5",
-    "type-fest": "^5.8.0",
-    "typescript": "npm:@typescript/typescript6@~6",
-    "vite": "^8.1.5"
+    "shiki": "^4.4.3",
+    "svelte-check": "^4.7.6",
+    "type-fest": "^5.10.0",
+    "typescript": "npm:@typescript/typescript6@~6.0.2",
+    "vite": "^8.3.1"
   },
   "dependencies": {
     "@catppuccin/palette": "^1.8.0",
     "modern-normalize": "^3.0.1",
-    "svelte": "^5.56.6"
+    "svelte": "^5.57.1"
   },
   "imports": {
+    "#lib": "./src/lib/index.js",
     "#lib/*": "./src/lib/*",
     "#grid/*": "./src/lib/components/Grid/*",
     "#src/*": "./src/*"
