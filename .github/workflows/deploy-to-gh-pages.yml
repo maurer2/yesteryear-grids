@@ -1,5 +1,4 @@
 # https://vite.dev/guide/static-deploy.html#github-pages
-# https://github.com/maurer2/trickle-down-features/blob/main/.github/workflows/deploy-to-gh-pages.yml
 
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy sveltekit app to GH pages
@@ -24,7 +23,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -34,11 +32,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
       # https://github.com/pnpm/action-setup#migrating-to-pnpmsetup
-      - uses: pnpm/setup@v2
+      - uses: pnpm/setup@v3
         with:
-          runtime: node@24 # doesn't read .nvmrc https://github.com/pnpm/setup/issues/6
           cache: true
-          install: true
       - name: Build
         run: pnpm run build
       - name: Setup Pages
