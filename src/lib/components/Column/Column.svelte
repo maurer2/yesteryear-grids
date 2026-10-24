@@ -16,23 +16,16 @@
 <style>
   @layer components {
     .column {
-      position: relative;
+      text-align: center;
       background: var(--bg);
       color: var(--text);
-      block-size: 25dvi;
-
-      @container card (inline-size >= 600px) {
-        block-size: 10dvi;
-      }
     }
 
     .label {
-      position: absolute;
-      inset: 0;
-      align-self: center;
-      rotate: 90deg;
-      transform-origin: center;
-      text-align: center;
+      padding-inline: 2rem; /* inline axis is now vertical as writing mode has changed */
+      writing-mode: vertical-lr;
+      /* text-orientation: upright; */
+      text-orientation: sideways;
     }
   }
 </style>
